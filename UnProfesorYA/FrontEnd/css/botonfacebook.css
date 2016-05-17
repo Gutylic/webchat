@@ -1,0 +1,11 @@
+﻿.output {
+	color: #000;
+	line-height: auto;
+	background-color: #eee;
+	font-family: Consolas, Courier New, sans-serif;
+	font-size: small;
+}
+
+.fb-btn {
+	display: none;
+}

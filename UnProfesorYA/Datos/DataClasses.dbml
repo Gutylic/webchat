@@ -1,0 +1,638 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="baseWebSupervisor" Class="DataClassesDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=GUSTAVOPC;Initial Catalog=baseWebSupervisor;Integrated Security=True" SettingsObjectName="Datos.Properties.Settings" SettingsPropertyName="baseWebSupervisorConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.Tabla_Ano" Member="Tabla_Ano">
+    <Type Name="Tabla_Ano" Id="ID2">
+      <Column Name="id_Ano" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ano" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="etiquetaAno" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_ValorOfertas" Member="Tabla_ValorOfertas">
+    <Type Name="Tabla_ValorOfertas">
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="oferta_1ValorPrestamoSOS" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="oferta_2ValorRegistro" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="oferta_3ValorProximaCarga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_4ValorAumentoCarga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_5ValorRegaloCarga" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="oferta_6ValorDosXUno" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_7ValorDosXUnoigualProducto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_8ValorGratis" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_9ValorDescuentoSegundo" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="oferta_10ValorBonificacionHabitue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_11ValorAumentoDiasCompras" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_12ValorAumentoDiasTodasCompras" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_13ValorDescuentoCompra" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="oferta_14ValorImpresionGratis" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_15ValorVideoGratis" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_16ValorEjerciciosGratis" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_17ValorExplicacionesGratis" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="oferta_18Valor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="oferta_19Valor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Column Name="oferta_20Valor" Type="System.Decimal" DbType="Decimal(8,2)" CanBeNull="true" />
+      <Association Name="Tabla_Empresa_Tabla_ValorOfertas" Member="Tabla_Empresa" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_Empresa" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_BuquedasEjercicios" Member="Tabla_BuquedasEjercicios">
+    <Type Name="Tabla_BuquedasEjercicios">
+      <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="etiquetaTema" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="etiquetaMateria" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="etiquetaColegio" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="etiquetaProfesor" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="etiquetaAno" Type="System.String" DbType="NVarChar(150)" CanBeNull="true" />
+      <Column Name="id_TipoInstitucion" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tabla_TipoIntitucion_Tabla_BuquedasEjercicios" Member="Tabla_TipoIntitucion" ThisKey="id_TipoInstitucion" OtherKey="id_TipoInstitucion" Type="Tabla_TipoIntitucion" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Tabla_Ejercicios_Tabla_BuquedasEjercicios" Member="Tabla_Ejercicios" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_Ejercicios" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_Colegio" Member="Tabla_Colegio">
+    <Type Name="Tabla_Colegio" Id="ID3">
+      <Column Name="id_Colegio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="colegio" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="etiquetaColegio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_DatosExtraUsuario" Member="Tabla_DatosExtraUsuario">
+    <Type Name="Tabla_DatosExtraUsuario">
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ipAddress" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="bloqueoUsuario" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="ofertaProximaCarga" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="codigoBloqueo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tabla_Usuario_Tabla_DatosExtraUsuario" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_DatosUsuario" Member="Tabla_DatosUsuario">
+    <Type Name="Tabla_DatosUsuario">
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="modeloTelefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="skype" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="pais" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tabla_Usuario_Tabla_DatosUsuario" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_DuracionProductos" Member="Tabla_DuracionProductos">
+    <Type Name="Tabla_DuracionProductos">
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="duracionVideos" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="duracionEjercicios" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="precioVideo" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="precioEjercicio" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="precioExplicacion" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="precioImpresion" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="ejerciciosCompradosHabitue" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="recargaHabitue" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Association Name="Tabla_Empresa_Tabla_DuracionProductos" Member="Tabla_Empresa" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_Empresa" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_Empresa" Member="Tabla_Empresa">
+    <Type Name="Tabla_Empresa">
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="empresa" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
+      <Association Name="Tabla_Empresa_Tabla_ValorOfertas" Member="Tabla_ValorOfertas" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_ValorOfertas" />
+      <Association Name="Tabla_Empresa_Tabla_DuracionProductos" Member="Tabla_DuracionProductos" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_DuracionProductos" />
+      <Association Name="Tabla_Empresa_Tabla_Ofertas" Member="Tabla_Ofertas" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_Ofertas" />
+      <Association Name="Tabla_Empresa_Tabla_PreguntaClientes" Member="Tabla_PreguntaClientes" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_PreguntaClientes" />
+      <Association Name="Tabla_Empresa_Tabla_TarjetaPrepaga" Member="Tabla_TarjetaPrepaga" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_TarjetaPrepaga" />
+      <Association Name="Tabla_Empresa_Tabla_Usuario" Member="Tabla_Usuario" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_Usuario" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_EnunciadoEjercicios" Member="Tabla_EnunciadoEjercicios">
+    <Type Name="Tabla_EnunciadoEjercicios">
+      <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="enunciadoMath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="enunciadoLimpio" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Association Name="Tabla_Ejercicios_Tabla_EnunciadoEjercicios" Member="Tabla_Ejercicios" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_Ejercicios" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_Materia" Member="Tabla_Materia">
+    <Type Name="Tabla_Materia" Id="ID4">
+      <Column Name="id_Materia" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="materia" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="etiquetaMateria" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_MisEjercicios" Member="Tabla_MisEjercicios">
+    <Type Name="Tabla_MisEjercicios">
+      <Column Name="id_CompraEjercicioExplicaicones" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ejercicio" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="explicacion" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="venvimiento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fechaVencimiento" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Association Name="Tabla_Usuario_Tabla_MisEjercicios" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Tabla_Ejercicios_Tabla_MisEjercicios" Member="Tabla_Ejercicios" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_Ejercicios" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_MisExplicaciones" Member="Tabla_MisExplicaciones">
+    <Type Name="Tabla_MisExplicaciones">
+      <Column Name="id_CompraVideos" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="video" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="vencimiento" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fechaVencimiento" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tabla_Usuario_Tabla_MisExplicaciones" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" DeleteRule="CASCADE" />
+      <Association Name="Tabla_Ejercicios_Tabla_MisExplicaciones" Member="Tabla_Ejercicios" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_Ejercicios" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_Movimientos" Member="Tabla_Movimientos">
+    <Type Name="Tabla_Movimientos">
+      <Column Name="id_Movimiento" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_TipoMovimiento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="debe" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="haber" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="fechaMovimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Association Name="Tabla_TipoMovimientos_Tabla_Movimientos" Member="Tabla_TipoMovimientos" ThisKey="id_TipoMovimiento" OtherKey="id_TipoMovimiento" Type="Tabla_TipoMovimientos" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+      <Association Name="Tabla_Usuario_Tabla_Movimientos" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_Ofertas" Member="Tabla_Ofertas">
+    <Type Name="Tabla_Ofertas">
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="oferta_1PrestamoSOS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_2Registro" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_3ProximaCarga" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_4AumentoCarga" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_5RegaloCarga" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_6DosXUno" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_7DosXUnoIgualProducto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_8Gratis" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_9DescuentoSegundo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_10BonificaciónHabitue" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_11AumentoDiasCompras" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_12AumentoDiasTodasCompras" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_13DescuentoCompra" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_14ImpresionGratis" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_15VideosGratis" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_16EjerciciosGratis" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_17ExplicacionesGratis" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_18" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_19" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="oferta_20" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Tabla_Empresa_Tabla_Ofertas" Member="Tabla_Empresa" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_Empresa" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_PedidoEjercicioVideo" Member="Tabla_PedidoEjercicioVideo">
+    <Type Name="Tabla_PedidoEjercicioVideo">
+      <Column Name="id_PedidoEjercicioVideo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_Administrador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fechaPedidoEjercicioVideo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fichaEjercicioVideo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="enunciadoEjercicioVideoMATH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="adjuntoEjercicioVideo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="realizadoOKPedidoEjercicioVideo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_PedidoExplicacion" Member="Tabla_PedidoExplicacion">
+    <Type Name="Tabla_PedidoExplicacion">
+      <Column Name="id_PedidoExplicacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fechaPedidoExplicacion" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="id_Administrador" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="realizadoOK" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Tabla_Usuario_Tabla_PedidoExplicacion" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_PreguntaClientes" Member="Tabla_PreguntaClientes">
+    <Type Name="Tabla_PreguntaClientes">
+      <Column Name="id_PreguntaUsuario" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="PreguntaUsuario" Type="System.String" DbType="NVarChar(MAX) NOT NULL" CanBeNull="false" />
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="fechaComentario" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="correoCliente" Type="System.String" DbType="NVarChar(30) NOT NULL" CanBeNull="false" />
+      <Association Name="Tabla_Empresa_Tabla_PreguntaClientes" Member="Tabla_Empresa" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_Empresa" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_Profesor" Member="Tabla_Profesor">
+    <Type Name="Tabla_Profesor" Id="ID5">
+      <Column Name="id_Profesor" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="profesor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="etiquetaProfesor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_TarjetaPrepaga" Member="Tabla_TarjetaPrepaga">
+    <Type Name="Tabla_TarjetaPrepaga">
+      <Column Name="id_Tarjeta" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="codigoTarjeta" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="valorTarjeta" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="vencimientoTarjeta" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="bloqueoTarjeta" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Tabla_Empresa_Tabla_TarjetaPrepaga" Member="Tabla_Empresa" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_Empresa" IsForeignKey="true" DeleteRule="CASCADE" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_Tema" Member="Tabla_Tema">
+    <Type Name="Tabla_Tema" Id="ID6">
+      <Column Name="id_Tema" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tema" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="etiquetaTema" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_TipoIntitucion" Member="Tabla_TipoIntitucion">
+    <Type Name="Tabla_TipoIntitucion">
+      <Column Name="id_TipoInstitucion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tipoInstitucion" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Tabla_TipoIntitucion_Tabla_BuquedasEjercicios" Member="Tabla_BuquedasEjercicios" ThisKey="id_TipoInstitucion" OtherKey="id_TipoInstitucion" Type="Tabla_BuquedasEjercicios" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_TipoMovimientos" Member="Tabla_TipoMovimientos">
+    <Type Name="Tabla_TipoMovimientos">
+      <Column Name="id_TipoMovimiento" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="tipoMovimiento" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Association Name="Tabla_TipoMovimientos_Tabla_Movimientos" Member="Tabla_Movimientos" ThisKey="id_TipoMovimiento" OtherKey="id_TipoMovimiento" Type="Tabla_Movimientos" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_UbicacionEjercicios" Member="Tabla_UbicacionEjercicios">
+    <Type Name="Tabla_UbicacionEjercicios">
+      <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ubicacionVisible" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ubicacionImprimible" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ubicacionVideo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Association Name="Tabla_Ejercicios_Tabla_UbicacionEjercicios" Member="Tabla_Ejercicios" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_Ejercicios" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_Usuario" Member="Tabla_Usuario">
+    <Type Name="Tabla_Usuario">
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_Facebook" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nameFacebook" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Association Name="Tabla_Usuario_Tabla_DatosExtraUsuario" Member="Tabla_DatosExtraUsuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_DatosExtraUsuario" />
+      <Association Name="Tabla_Usuario_Tabla_DatosUsuario" Member="Tabla_DatosUsuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_DatosUsuario" />
+      <Association Name="Tabla_Usuario_Tabla_MisEjercicios" Member="Tabla_MisEjercicios" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_MisEjercicios" />
+      <Association Name="Tabla_Usuario_Tabla_MisExplicaciones" Member="Tabla_MisExplicaciones" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_MisExplicaciones" />
+      <Association Name="Tabla_Usuario_Tabla_Movimientos" Member="Tabla_Movimientos" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Movimientos" />
+      <Association Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo" Member="Tabla_PedidoEjercicioVideo" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_PedidoEjercicioVideo" />
+      <Association Name="Tabla_Usuario_Tabla_PedidoExplicacion" Member="Tabla_PedidoExplicacion" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_PedidoExplicacion" />
+      <Association Name="Tabla_Usuario_Tabla_UsuarioCredito" Member="Tabla_UsuarioCredito" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_UsuarioCredito" />
+      <Association Name="Tabla_Empresa_Tabla_Usuario" Member="Tabla_Empresa" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_Empresa" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_UsuarioCredito" Member="Tabla_UsuarioCredito">
+    <Type Name="Tabla_UsuarioCredito">
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="creditoUsuario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="prestamoReal" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="prestamoSOS" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Tabla_Usuario_Tabla_UsuarioCredito" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vista_ActivacionUsuarioWeb" Member="Vista_ActivacionUsuarioWeb">
+    <Type Name="Vista_ActivacionUsuarioWeb">
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="codigoBloqueo" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="bloqueoUsuario" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="id_Facebook" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nameFacebook" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vista_RecuperarContraseñaWeb" Member="Vista_RecuperarContraseñaWeb">
+    <Type Name="Vista_RecuperarContraseñaWeb">
+      <Column Name="correo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="bloqueoUsuario" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vista_BusquedaEjercicioDatalistWeb" Member="Vista_BusquedaEjercicioDatalistWeb">
+    <Type Name="Vista_BusquedaEjercicioDatalistWeb">
+      <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="etiquetaTema" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="etiquetaMateria" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="etiquetaColegio" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="etiquetaProfesor" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="etiquetaAno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_TipoInstitucion" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vista_CreditoUsuarioWeb" Member="Vista_CreditoUsuarioWeb">
+    <Type Name="Vista_CreditoUsuarioWeb">
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="creditoUsuario" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vista_LogueoUsuariosWeb" Member="Vista_LogueoUsuariosWeb">
+    <Type Name="Vista_LogueoUsuariosWeb">
+      <Column Name="bloqueoUsuario" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="telefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_Facebook" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="nameFacebook" Type="System.String" DbType="NVarChar(60)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vista_MostrarEnunciadoDatalistWeb" Member="Vista_MostrarEnunciadoDatalistWeb">
+    <Type Name="Vista_MostrarEnunciadoDatalistWeb">
+      <Column Name="ubicacionVideo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vista_MostrarListadoDeEjercicios" Member="Vista_MostrarListadoDeEjercicios">
+    <Type Name="Vista_MostrarListadoDeEjercicios">
+      <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ubicacionVisible" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ubicacionImprimible" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ubicacionVideo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="enunciadoMath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="enunciadoLimpio" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vista_PanelSaldoUsuarioWeb" Member="Vista_PanelSaldoUsuarioWeb">
+    <Type Name="Vista_PanelSaldoUsuarioWeb">
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="debe" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="haber" Type="System.Decimal" DbType="Decimal(10,2)" CanBeNull="true" />
+      <Column Name="tipoMovimiento" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="fechaMovimiento" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="id_Movimiento" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Vista_PanelControlUsuarioWeb" Member="Vista_PanelControlUsuarioWeb">
+    <Type Name="Vista_PanelControlUsuarioWeb">
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="modeloTelefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="skype" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pais" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_Ejercicios" Member="Tabla_Ejercicios">
+    <Type Name="Tabla_Ejercicios" Id="ID1">
+      <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Titulo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
+      <Column Name="id_TipoEjercicio" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="explicacionRealizada" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Tabla_Ejercicios_Tabla_BuquedasEjercicios" Member="Tabla_BuquedasEjercicios" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_BuquedasEjercicios" Cardinality="One" />
+      <Association Name="Tabla_Ejercicios_Tabla_EnunciadoEjercicios" Member="Tabla_EnunciadoEjercicios" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_EnunciadoEjercicios" Cardinality="One" />
+      <Association Name="Tabla_Ejercicios_Tabla_MisEjercicios" Member="Tabla_MisEjercicios" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_MisEjercicios" />
+      <Association Name="Tabla_Ejercicios_Tabla_MisExplicaciones" Member="Tabla_MisExplicaciones" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_MisExplicaciones" />
+      <Association Name="Tabla_Ejercicios_Tabla_UbicacionEjercicios" Member="Tabla_UbicacionEjercicios" ThisKey="id_Ejercicio" OtherKey="id_Ejercicio" Type="Tabla_UbicacionEjercicios" />
+    </Type>
+  </Table>
+  <Function Name="dbo.usuarioExiste" Method="usuarioExiste">
+    <Parameter Name="usuarioCorreo" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="usuarioTelefono" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="id_Facebook" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="respuestaId_Usuario" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ofertaRegistro" Method="ofertaRegistro">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="respuestaOferta" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usuarioRegistrado" Method="usuarioRegistrado">
+    <Parameter Name="passwordUsuario" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="correoUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="telefonoUsuario" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ipAddress" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="codigoActivacion" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_Facebook" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nameFacebook" Type="System.String" DbType="NVarChar(60)" />
+    <Parameter Name="pais" Type="System.Int32" DbType="Int" />
+    <Parameter Name="respuestaRegistrado" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usuarioLogueado" Method="usuarioLogueado">
+    <Parameter Name="correoUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="passwordUsuario" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="telefonoUsuario" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="id_Facebook" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="nameFacebook" Type="System.String" DbType="NVarChar(60)" />
+    <Parameter Name="respuestaId_Usuario" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Parameter Name="respuestaName_Usuario" Type="System.String" DbType="NVarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usuarioContrasenaCelular" Method="usuarioContrasenaCelular">
+    <Parameter Name="celular" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="respuestaContrasena" Type="System.String" DbType="NVarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usuarioContrasenaCorreo" Method="usuarioContrasenaCorreo">
+    <Parameter Name="correoUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="respuestaContrasena" Type="System.String" DbType="NVarChar(10)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usuarioActivacionCorreo" Method="usuarioActivacionCorreo">
+    <Parameter Name="usuarioCorreo" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="respuestaId_Usuario" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.usuarioActivacionTelefono" Method="usuarioActivacionTelefono">
+    <Parameter Name="telefonoUsuario" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="activacionUsuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="respuestaId_Usuario" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.consultaPanelControl" Method="consultaPanelControl">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <ElementType Name="consultaPanelControlResult">
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="password" Type="System.String" DbType="NVarChar(10)" CanBeNull="true" />
+      <Column Name="correo" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="telefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="modeloTelefono" Type="System.String" DbType="NVarChar(20)" CanBeNull="true" />
+      <Column Name="skype" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="pais" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.modificarPanelControlCambioCorreoTelefono" Method="modificarPanelControlCambioCorreoTelefono">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="passwordUsuario" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="correoUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="telefonoUsuario" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="modeloTelefono" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="skypeUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pais" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.modificarPanelControlCambioCorreo" Method="modificarPanelControlCambioCorreo">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="passwordUsuario" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="correoUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="telefonoUsuario" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="modeloTelefono" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="skypeUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pais" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.modificarPanelControlCambioTelefono" Method="modificarPanelControlCambioTelefono">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="passwordUsuario" Type="System.String" DbType="NVarChar(10)" />
+    <Parameter Name="correoUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="telefonoUsuario" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="modeloTelefono" Type="System.String" DbType="NVarChar(20)" />
+    <Parameter Name="skypeUsuario" Type="System.String" DbType="NVarChar(30)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="pais" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.consultaPanelMovimiento" Method="consultaPanelMovimiento">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <ElementType Name="consultaPanelMovimientoResult">
+      <Column Name="fechaMovimiento" Type="System.DateTime" DbType="Date NOT NULL" CanBeNull="false" />
+      <Column Name="tipoMovimiento" Type="System.String" DbType="NVarChar(30)" CanBeNull="true" />
+      <Column Name="debe" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+      <Column Name="haber" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
+    </ElementType>
+  </Function>
+  <Function Name="dbo.consultaCreditoUsuario" Method="consultaCreditoUsuario">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="resultadoCredito" Type="System.Decimal" DbType="Decimal(10,2)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.mensajeCliente" Method="mensajeCliente">
+    <Parameter Name="cliente" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="correoCliente" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="empresa" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="preguntaCliente" Type="System.String" DbType="NVarChar(MAX)" />
+    <Parameter Name="resultadoMensaje" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.prestamoRealPedido" Method="prestamoRealPedido">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="resultadoPrestamoReal" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.pedidoPrestamoSOS" Method="pedidoPrestamoSOS">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="resultadoPrestamo" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cargarPrestamoSOS" Method="cargarPrestamoSOS">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="oferta_1ValorPrestamoSOS" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cargadorOfertasAumentoCarga" Method="cargadorOfertasAumentoCarga">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="valorTarjeta" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="calculoAuxiliar" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cargadorOfertasProximaCarga" Method="cargadorOfertasProximaCarga">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="valorTarjeta" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="calculoAuxiliar" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cargadorOfertasRegaloCarga" Method="cargadorOfertasRegaloCarga">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="valorTarjeta" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="calculoAuxiliar" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cargaTarjetaPrepaga" Method="cargaTarjetaPrepaga">
+    <Parameter Name="codigo" Type="System.Int32" DbType="Int" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="valorTarjeta" Type="System.Decimal" DbType="Decimal(18,2)" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ofertaPrestamoSOSRealizado" Method="ofertaPrestamoSOSRealizado">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="bloqueoSOS" Type="System.Boolean" DbType="Bit" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cargarCreditoTarjetaPagoParcialSOS" Method="cargarCreditoTarjetaPagoParcialSOS">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cargaCredito" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cargarCreditoTarjetaPagoTotalSOS" Method="cargarCreditoTarjetaPagoTotalSOS">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="cargaCredito" Type="System.Decimal" DbType="Decimal(18,2)" />
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.ofertaProximaCarga" Method="ofertaProximaCarga">
+    <Parameter Name="empresa" Type="System.Int32" DbType="Int" />
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="resultado" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.resultadoDatalistTitulosEjercicioCompleta" Method="resultadoDatalistTitulosEjercicioCompleta">
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.resultadoDatalistTitulosEjercicioCompletaPaginado" Method="resultadoDatalistTitulosEjercicioCompletaPaginado">
+    <Parameter Name="paginas" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.resultadoDatalistTitulosEjercicioBusqueda" Method="resultadoDatalistTitulosEjercicioBusqueda">
+    <Parameter Name="profesorEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="anoEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="colegioEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="materiaEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="temaEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType IdRef="ID1" />
+  </Function>
+  <Function Name="dbo.resultadoDatalistTitulosEjercicioBusquedaPaginado" Method="resultadoDatalistTitulosEjercicioBusquedaPaginado">
+    <Parameter Name="profesorEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="anoEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="colegioEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="materiaEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="temaEjercicio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="paginas" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.buscarEnTablaAnos" Method="buscarEnTablaAnos">
+    <Parameter Name="Ano" Parameter="ano" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType IdRef="ID2" />
+  </Function>
+  <Function Name="dbo.buscarEnTablaColegios" Method="buscarEnTablaColegios">
+    <Parameter Name="Colegio" Parameter="colegio" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType IdRef="ID3" />
+  </Function>
+  <Function Name="dbo.buscarEnTablaMaterias" Method="buscarEnTablaMaterias">
+    <Parameter Name="Materia" Parameter="materia" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType IdRef="ID4" />
+  </Function>
+  <Function Name="dbo.buscarEnTablaProfesores" Method="buscarEnTablaProfesores">
+    <Parameter Name="Profesor" Parameter="profesor" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType IdRef="ID5" />
+  </Function>
+  <Function Name="dbo.buscarEnTablaTemas" Method="buscarEnTablaTemas">
+    <Parameter Name="Tema" Parameter="tema" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType IdRef="ID6" />
+  </Function>
+  <Function Name="dbo.determinarEjercicioOVideo" Method="determinarEjercicioOVideo">
+    <Parameter Name="id_Ejercicio" Type="System.Int32" DbType="Int" />
+    <Parameter Name="tipoEjercicio" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+</Database>
