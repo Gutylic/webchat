@@ -44,5 +44,20 @@ namespace FrontEnd
         {
             Response.Redirect("ListadoEnunciados.aspx");
         }
+
+        protected void BtnMisEjercicios_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MisEjercicios.aspx");
+        }
+
+        protected void BtnMisExplicaciones_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("MisExplicaciones.aspx");
+        }
+
+        protected void BtnProfesorOnLine_Click(object sender, EventArgs e)
+        {
+            Response.Redirect("ProfesorOnLine.aspx");
+        }
     }
 }

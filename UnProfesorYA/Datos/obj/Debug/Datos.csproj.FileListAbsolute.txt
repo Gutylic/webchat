@@ -4,3 +4,9 @@ C:\Users\Licen\Desktop\whatchat\UnProfesorYA\Datos\bin\Debug\Datos.pdb
 C:\Users\Licen\Desktop\whatchat\UnProfesorYA\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
 C:\Users\Licen\Desktop\whatchat\UnProfesorYA\Datos\obj\Debug\Datos.dll
 C:\Users\Licen\Desktop\whatchat\UnProfesorYA\Datos\obj\Debug\Datos.pdb
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Datos\bin\Debug\Datos.dll.config
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Datos\bin\Debug\Datos.dll
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Datos\bin\Debug\Datos.pdb
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Datos\obj\Debug\Datos.csprojResolveAssemblyReference.cache
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Datos\obj\Debug\Datos.dll
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Datos\obj\Debug\Datos.pdb

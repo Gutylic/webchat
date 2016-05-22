@@ -9,3 +9,13 @@ C:\Users\Licen\Desktop\whatchat\UnProfesorYA\FrontEnd\bin\Logica.dll
 C:\Users\Licen\Desktop\whatchat\UnProfesorYA\FrontEnd\bin\Logica.pdb
 C:\Users\Licen\Desktop\whatchat\UnProfesorYA\FrontEnd\bin\Datos.dll
 C:\Users\Licen\Desktop\whatchat\UnProfesorYA\FrontEnd\bin\Datos.pdb
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\obj\Debug\FrontEnd.csprojResolveAssemblyReference.cache
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\obj\Debug\FrontEnd.dll
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\bin\FrontEnd.dll.config
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\bin\FrontEnd.dll
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\bin\FrontEnd.pdb
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\bin\Datos.dll
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\bin\Logica.dll
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\bin\Datos.pdb
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\bin\Logica.pdb
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\FrontEnd\obj\Debug\FrontEnd.pdb

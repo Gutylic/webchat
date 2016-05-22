@@ -11,7 +11,7 @@ namespace FrontEnd
 {
 
 
-    public partial class MisVideos
+    public partial class RespuestasEnunciados
     {
 
         /// <summary>

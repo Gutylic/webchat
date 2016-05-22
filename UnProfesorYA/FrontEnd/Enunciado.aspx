@@ -12,13 +12,13 @@
         <table style="width:100%;">
             <tr>
                 <td>
-                    <asp:Button ID="BtnEjercicio" runat="server" Text="Comprar Ejercicio" Visible ="false" />
+                    <asp:Button ID="BtnEjercicio" runat="server" Text="Comprar Ejercicio" Visible ="false" OnClick="BtnEjercicio_Click" />
                 </td>
                 <td>
-                    <asp:Button ID="BtnExplicacion" runat="server" Text="Comprar Explicacion" Visible ="false" />
+                    <asp:Button ID="BtnExplicacion" runat="server" Text="Comprar Explicacion" Visible ="false" OnClick="BtnExplicacion_Click" />
                 </td>
                 <td>
-                    <asp:Button ID="BtnVideo" runat="server" Text="Comprar Video" Visible="false" />
+                    <asp:Button ID="BtnVideo" runat="server" Text="Comprar Video" Visible="false" OnClick="BtnVideo_Click"/>
                 </td>
             </tr>
         </table>

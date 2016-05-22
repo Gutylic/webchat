@@ -40,6 +40,10 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="compraEjerciciosDataList.cs" />
+    <Compile Include="compraImpresionDataList.cs" />
+    <Compile Include="comprarExplicacionDataList.cs" />
+    <Compile Include="compraVideosDataList.cs" />
     <Compile Include="creditosUsuarios.cs" />
     <Compile Include="DataClasses.designer.cs">
       <AutoGen>True</AutoGen>
@@ -49,9 +53,13 @@
     <Compile Include="dataListInicial.cs" />
     <Compile Include="dataListInicialBusqueda.cs" />
     <Compile Include="botonesListado.cs" />
+    <Compile Include="datosMisEjercicios.cs" />
+    <Compile Include="datosMisExplicaciones.cs" />
     <Compile Include="envioMensajeCliente.cs" />
+    <Compile Include="obtenerRespuestaVisible.cs" />
     <Compile Include="panelDeUsuarios.cs" />
     <Compile Include="panelSaldoDeUsuario.cs" />
+    <Compile Include="profesorOnLine.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Properties\Settings.Designer.cs">
       <AutoGen>True</AutoGen>

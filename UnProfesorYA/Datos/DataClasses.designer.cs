@@ -54,12 +54,6 @@ namespace Datos
     partial void InsertTabla_Movimientos(Tabla_Movimientos instance);
     partial void UpdateTabla_Movimientos(Tabla_Movimientos instance);
     partial void DeleteTabla_Movimientos(Tabla_Movimientos instance);
-    partial void InsertTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
-    partial void UpdateTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
-    partial void DeleteTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
-    partial void InsertTabla_PedidoExplicacion(Tabla_PedidoExplicacion instance);
-    partial void UpdateTabla_PedidoExplicacion(Tabla_PedidoExplicacion instance);
-    partial void DeleteTabla_PedidoExplicacion(Tabla_PedidoExplicacion instance);
     partial void InsertTabla_PreguntaClientes(Tabla_PreguntaClientes instance);
     partial void UpdateTabla_PreguntaClientes(Tabla_PreguntaClientes instance);
     partial void DeleteTabla_PreguntaClientes(Tabla_PreguntaClientes instance);
@@ -84,6 +78,12 @@ namespace Datos
     partial void InsertTabla_Ejercicios(Tabla_Ejercicios instance);
     partial void UpdateTabla_Ejercicios(Tabla_Ejercicios instance);
     partial void DeleteTabla_Ejercicios(Tabla_Ejercicios instance);
+    partial void InsertTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
+    partial void UpdateTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
+    partial void DeleteTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
+    partial void InsertTabla_PedidoExplicacion(Tabla_PedidoExplicacion instance);
+    partial void UpdateTabla_PedidoExplicacion(Tabla_PedidoExplicacion instance);
+    partial void DeleteTabla_PedidoExplicacion(Tabla_PedidoExplicacion instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -225,22 +225,6 @@ namespace Datos
 			get
 			{
 				return this.GetTable<Tabla_Ofertas>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Tabla_PedidoEjercicioVideo> Tabla_PedidoEjercicioVideo
-		{
-			get
-			{
-				return this.GetTable<Tabla_PedidoEjercicioVideo>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Tabla_PedidoExplicacion> Tabla_PedidoExplicacion
-		{
-			get
-			{
-				return this.GetTable<Tabla_PedidoExplicacion>();
 			}
 		}
 		
@@ -393,6 +377,38 @@ namespace Datos
 			get
 			{
 				return this.GetTable<Tabla_Ejercicios>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Vista_MostrarListadoMisEjercicios> Vista_MostrarListadoMisEjercicios
+		{
+			get
+			{
+				return this.GetTable<Vista_MostrarListadoMisEjercicios>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Tabla_PedidoEjercicioVideo> Tabla_PedidoEjercicioVideo
+		{
+			get
+			{
+				return this.GetTable<Tabla_PedidoEjercicioVideo>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Tabla_PedidoExplicacion> Tabla_PedidoExplicacion
+		{
+			get
+			{
+				return this.GetTable<Tabla_PedidoExplicacion>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Vista_MostrarListadoMisExplicaciones> Vista_MostrarListadoMisExplicaciones
+		{
+			get
+			{
+				return this.GetTable<Vista_MostrarListadoMisExplicaciones>();
 			}
 		}
 		
@@ -667,6 +683,355 @@ namespace Datos
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Ejercicio, tipoEjercicio);
 			tipoEjercicio = ((System.Nullable<int>)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.evitarRecompraEjercicio1")]
+		public int evitarRecompraEjercicio1([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> respuestaCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, id_Ejercicio, respuestaCompra);
+			respuestaCompra = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDosXUno2")]
+		public int ofertaDosXUno2([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDosXUnoIgualProductoEjercicio3")]
+		public int ofertaDosXUnoIgualProductoEjercicio3([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaGratis4")]
+		public int ofertaGratis4([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDescuentoSegundoProductoEjercicio5")]
+		public int ofertaDescuentoSegundoProductoEjercicio5([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaBonificacionHabitue6")]
+		public int ofertaBonificacionHabitue6([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> respuestaRecarga)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaRecarga);
+			respuestaRecarga = ((System.Nullable<int>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaAumentoDias7")]
+		public int ofertaAumentoDias7([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> respuestaDias)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaDias);
+			respuestaDias = ((System.Nullable<int>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaAumentoDiasTodasCompras8")]
+		public int ofertaAumentoDiasTodasCompras8([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> respuestaDias)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaDias);
+			respuestaDias = ((System.Nullable<int>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDescuentoCompraEjercicio9")]
+		public int ofertaDescuentoCompraEjercicio9([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaCompraEjercicioGratis10")]
+		public int ofertaCompraEjercicioGratis10([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cargarMovimientoCompra")]
+		public int cargarMovimientoCompra([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> cargaCredito, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_TipoMovimiento, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] ref System.Nullable<decimal> resultadoPrestamo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, cargaCredito, empresa, id_TipoMovimiento, resultadoPrestamo);
+			resultadoPrestamo = ((System.Nullable<decimal>)(result.GetParameterValue(4)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaActivada")]
+		public int ofertaActivada([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> respuestaActivada)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), empresa, respuestaActivada);
+			respuestaActivada = ((System.Nullable<int>)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sinOferta")]
+		public int sinOferta([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] ref System.Nullable<decimal> precioEjercicio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), empresa, precioEjercicio);
+			precioEjercicio = ((System.Nullable<decimal>)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.compraEjerciciosDataListWeb")]
+		public int compraEjerciciosDataListWeb([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> precioCompra, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> tipoMovimiento, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> diasExtras, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> resultadoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, id_Ejercicio, precioCompra, empresa, tipoMovimiento, diasExtras, resultadoCompra);
+			resultadoCompra = ((System.Nullable<bool>)(result.GetParameterValue(6)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sinCreditoEjercicio")]
+		public int sinCreditoEjercicio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> costoEjercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> respuestaCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, costoEjercicio, respuestaCompra);
+			respuestaCompra = ((System.Nullable<bool>)(result.GetParameterValue(3)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.evitarRecompraExplicacion1")]
+		public int evitarRecompraExplicacion1([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> respuestaCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, id_Ejercicio, respuestaCompra);
+			respuestaCompra = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.evitarRecompraVideo1")]
+		public int evitarRecompraVideo1([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> respuestaCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, id_Ejercicio, respuestaCompra);
+			respuestaCompra = ((System.Nullable<bool>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDosXUnoIgualProductoExplicacion3")]
+		public int ofertaDosXUnoIgualProductoExplicacion3([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDosXUnoIgualProductoVideos3")]
+		public int ofertaDosXUnoIgualProductoVideos3([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDescuentoSegundoProductoExplicacion5")]
+		public int ofertaDescuentoSegundoProductoExplicacion5([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDescuentoSegundoProductoVideo5")]
+		public int ofertaDescuentoSegundoProductoVideo5([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDescuentoCompraExplicacion9")]
+		public int ofertaDescuentoCompraExplicacion9([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDescuentoCompraVideo9")]
+		public int ofertaDescuentoCompraVideo9([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaCompraExplicacionGratis10")]
+		public int ofertaCompraExplicacionGratis10([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaCompraVideoGratis10")]
+		public int ofertaCompraVideoGratis10([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sinCreditoExplicacion")]
+		public int sinCreditoExplicacion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> costoExplicacion, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> respuestaCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, costoExplicacion, respuestaCompra);
+			respuestaCompra = ((System.Nullable<bool>)(result.GetParameterValue(3)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sinCreditoVideo")]
+		public int sinCreditoVideo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> costoVideo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> respuestaCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, costoVideo, respuestaCompra);
+			respuestaCompra = ((System.Nullable<bool>)(result.GetParameterValue(3)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.compraVideosDataListWeb")]
+		public int compraVideosDataListWeb([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> precioCompra, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> tipoMovimiento, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> diasExtras, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> resultadoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, id_Ejercicio, precioCompra, empresa, tipoMovimiento, diasExtras, resultadoCompra);
+			resultadoCompra = ((System.Nullable<bool>)(result.GetParameterValue(6)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.compraExplicacionesDataListWeb")]
+		public int compraExplicacionesDataListWeb([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> precioCompra, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> tipoMovimiento, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> diasExtras, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> resultadoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, id_Ejercicio, precioCompra, empresa, tipoMovimiento, diasExtras, resultadoCompra);
+			resultadoCompra = ((System.Nullable<bool>)(result.GetParameterValue(6)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.resultadoMisEjercicios")]
+		public ISingleResult<Vista_MostrarListadoMisEjercicios> resultadoMisEjercicios([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario);
+			return ((ISingleResult<Vista_MostrarListadoMisEjercicios>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.resultadoMisEjerciciosPaginado")]
+		public int resultadoMisEjerciciosPaginado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> paginas)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, paginas);
+			paginas = ((System.Nullable<int>)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.mostrarEnunciadoImprimible")]
+		public int mostrarEnunciadoImprimible([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(40)")] ref string respuestaEjercicio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Ejercicio, respuestaEjercicio);
+			respuestaEjercicio = ((string)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.mostrarRespuestaVideo")]
+		public int mostrarRespuestaVideo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(40)")] ref string respuestaEjercicio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Ejercicio, respuestaEjercicio);
+			respuestaEjercicio = ((string)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.mostrarEnunciadoVisible")]
+		public int mostrarEnunciadoVisible([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(40)")] ref string respuestaEjercicio)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Ejercicio, respuestaEjercicio);
+			respuestaEjercicio = ((string)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDosXUnoIgualProductoImpresion3")]
+		public int ofertaDosXUnoIgualProductoImpresion3([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDescuentoSegundoProductoImpresion5")]
+		public int ofertaDescuentoSegundoProductoImpresion5([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaDescuentoCompraImpresion9")]
+		public int ofertaDescuentoCompraImpresion9([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.sinCreditoImpresion")]
+		public int sinCreditoImpresion([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> usuarioCredito, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> respuestaCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, usuarioCredito, respuestaCompra);
+			respuestaCompra = ((System.Nullable<bool>)(result.GetParameterValue(3)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.compraImpresionDataList")]
+		public int compraImpresionDataList([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Ejercicio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Decimal(18,2)")] System.Nullable<decimal> precioCompra, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> tipoMovimiento, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Bit")] ref System.Nullable<bool> resultadoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, id_Ejercicio, precioCompra, empresa, tipoMovimiento, resultadoCompra);
+			resultadoCompra = ((System.Nullable<bool>)(result.GetParameterValue(5)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.ofertaCompraImpresionGratis10")]
+		public int ofertaCompraImpresionGratis10([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> empresa, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(10)")] ref string respuestaValorTipoCompra)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, empresa, respuestaValorTipoCompra);
+			respuestaValorTipoCompra = ((string)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.resultadoMisExplicacionesPaginado")]
+		public int resultadoMisExplicacionesPaginado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> paginas)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, paginas);
+			paginas = ((System.Nullable<int>)(result.GetParameterValue(1)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.resultadoMisExplicaicones")]
+		public ISingleResult<resultadoMisExplicaiconesResult> resultadoMisExplicaicones([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario);
+			return ((ISingleResult<resultadoMisExplicaiconesResult>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.obtenerPedidoEjericicoVideo")]
+		public int obtenerPedidoEjericicoVideo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> numeroPedido)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), numeroPedido);
+			numeroPedido = ((System.Nullable<int>)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cargarPedidoEjercicioVideo")]
+		public int cargarPedidoEjercicioVideo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string fichaEjercicioVideo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string enunciadoEjercicioVideoMath, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string adjuntoEjercicioVideo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, fichaEjercicioVideo, enunciadoEjercicioVideoMath, adjuntoEjercicioVideo);
 			return ((int)(result.ReturnValue));
 		}
 	}
@@ -3422,476 +3787,6 @@ namespace Datos
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tabla_PedidoEjercicioVideo")]
-	public partial class Tabla_PedidoEjercicioVideo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_PedidoEjercicioVideo;
-		
-		private int _id_Usuario;
-		
-		private int _id_Administrador;
-		
-		private System.Nullable<System.DateTime> _fechaPedidoEjercicioVideo;
-		
-		private string _fichaEjercicioVideo;
-		
-		private string _enunciadoEjercicioVideoMATH;
-		
-		private string _adjuntoEjercicioVideo;
-		
-		private System.Nullable<bool> _realizadoOKPedidoEjercicioVideo;
-		
-		private EntityRef<Tabla_Usuario> _Tabla_Usuario;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_PedidoEjercicioVideoChanging(int value);
-    partial void Onid_PedidoEjercicioVideoChanged();
-    partial void Onid_UsuarioChanging(int value);
-    partial void Onid_UsuarioChanged();
-    partial void Onid_AdministradorChanging(int value);
-    partial void Onid_AdministradorChanged();
-    partial void OnfechaPedidoEjercicioVideoChanging(System.Nullable<System.DateTime> value);
-    partial void OnfechaPedidoEjercicioVideoChanged();
-    partial void OnfichaEjercicioVideoChanging(string value);
-    partial void OnfichaEjercicioVideoChanged();
-    partial void OnenunciadoEjercicioVideoMATHChanging(string value);
-    partial void OnenunciadoEjercicioVideoMATHChanged();
-    partial void OnadjuntoEjercicioVideoChanging(string value);
-    partial void OnadjuntoEjercicioVideoChanged();
-    partial void OnrealizadoOKPedidoEjercicioVideoChanging(System.Nullable<bool> value);
-    partial void OnrealizadoOKPedidoEjercicioVideoChanged();
-    #endregion
-		
-		public Tabla_PedidoEjercicioVideo()
-		{
-			this._Tabla_Usuario = default(EntityRef<Tabla_Usuario>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_PedidoEjercicioVideo", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id_PedidoEjercicioVideo
-		{
-			get
-			{
-				return this._id_PedidoEjercicioVideo;
-			}
-			set
-			{
-				if ((this._id_PedidoEjercicioVideo != value))
-				{
-					this.Onid_PedidoEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._id_PedidoEjercicioVideo = value;
-					this.SendPropertyChanged("id_PedidoEjercicioVideo");
-					this.Onid_PedidoEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Usuario", DbType="Int NOT NULL")]
-		public int id_Usuario
-		{
-			get
-			{
-				return this._id_Usuario;
-			}
-			set
-			{
-				if ((this._id_Usuario != value))
-				{
-					if (this._Tabla_Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_UsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._id_Usuario = value;
-					this.SendPropertyChanged("id_Usuario");
-					this.Onid_UsuarioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Administrador", DbType="Int NOT NULL")]
-		public int id_Administrador
-		{
-			get
-			{
-				return this._id_Administrador;
-			}
-			set
-			{
-				if ((this._id_Administrador != value))
-				{
-					this.Onid_AdministradorChanging(value);
-					this.SendPropertyChanging();
-					this._id_Administrador = value;
-					this.SendPropertyChanged("id_Administrador");
-					this.Onid_AdministradorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaPedidoEjercicioVideo", DbType="DateTime")]
-		public System.Nullable<System.DateTime> fechaPedidoEjercicioVideo
-		{
-			get
-			{
-				return this._fechaPedidoEjercicioVideo;
-			}
-			set
-			{
-				if ((this._fechaPedidoEjercicioVideo != value))
-				{
-					this.OnfechaPedidoEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._fechaPedidoEjercicioVideo = value;
-					this.SendPropertyChanged("fechaPedidoEjercicioVideo");
-					this.OnfechaPedidoEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fichaEjercicioVideo", DbType="NVarChar(50)")]
-		public string fichaEjercicioVideo
-		{
-			get
-			{
-				return this._fichaEjercicioVideo;
-			}
-			set
-			{
-				if ((this._fichaEjercicioVideo != value))
-				{
-					this.OnfichaEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._fichaEjercicioVideo = value;
-					this.SendPropertyChanged("fichaEjercicioVideo");
-					this.OnfichaEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_enunciadoEjercicioVideoMATH", DbType="NVarChar(50)")]
-		public string enunciadoEjercicioVideoMATH
-		{
-			get
-			{
-				return this._enunciadoEjercicioVideoMATH;
-			}
-			set
-			{
-				if ((this._enunciadoEjercicioVideoMATH != value))
-				{
-					this.OnenunciadoEjercicioVideoMATHChanging(value);
-					this.SendPropertyChanging();
-					this._enunciadoEjercicioVideoMATH = value;
-					this.SendPropertyChanged("enunciadoEjercicioVideoMATH");
-					this.OnenunciadoEjercicioVideoMATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_adjuntoEjercicioVideo", DbType="NVarChar(50)")]
-		public string adjuntoEjercicioVideo
-		{
-			get
-			{
-				return this._adjuntoEjercicioVideo;
-			}
-			set
-			{
-				if ((this._adjuntoEjercicioVideo != value))
-				{
-					this.OnadjuntoEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._adjuntoEjercicioVideo = value;
-					this.SendPropertyChanged("adjuntoEjercicioVideo");
-					this.OnadjuntoEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_realizadoOKPedidoEjercicioVideo", DbType="Bit")]
-		public System.Nullable<bool> realizadoOKPedidoEjercicioVideo
-		{
-			get
-			{
-				return this._realizadoOKPedidoEjercicioVideo;
-			}
-			set
-			{
-				if ((this._realizadoOKPedidoEjercicioVideo != value))
-				{
-					this.OnrealizadoOKPedidoEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._realizadoOKPedidoEjercicioVideo = value;
-					this.SendPropertyChanged("realizadoOKPedidoEjercicioVideo");
-					this.OnrealizadoOKPedidoEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo", Storage="_Tabla_Usuario", ThisKey="id_Usuario", OtherKey="id_Usuario", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Tabla_Usuario Tabla_Usuario
-		{
-			get
-			{
-				return this._Tabla_Usuario.Entity;
-			}
-			set
-			{
-				Tabla_Usuario previousValue = this._Tabla_Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Tabla_Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tabla_Usuario.Entity = null;
-						previousValue.Tabla_PedidoEjercicioVideo.Remove(this);
-					}
-					this._Tabla_Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Tabla_PedidoEjercicioVideo.Add(this);
-						this._id_Usuario = value.id_Usuario;
-					}
-					else
-					{
-						this._id_Usuario = default(int);
-					}
-					this.SendPropertyChanged("Tabla_Usuario");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tabla_PedidoExplicacion")]
-	public partial class Tabla_PedidoExplicacion : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_PedidoExplicacion;
-		
-		private int _id_Usuario;
-		
-		private System.Nullable<System.DateTime> _fechaPedidoExplicacion;
-		
-		private int _id_Administrador;
-		
-		private System.Nullable<bool> _realizadoOK;
-		
-		private EntityRef<Tabla_Usuario> _Tabla_Usuario;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_PedidoExplicacionChanging(int value);
-    partial void Onid_PedidoExplicacionChanged();
-    partial void Onid_UsuarioChanging(int value);
-    partial void Onid_UsuarioChanged();
-    partial void OnfechaPedidoExplicacionChanging(System.Nullable<System.DateTime> value);
-    partial void OnfechaPedidoExplicacionChanged();
-    partial void Onid_AdministradorChanging(int value);
-    partial void Onid_AdministradorChanged();
-    partial void OnrealizadoOKChanging(System.Nullable<bool> value);
-    partial void OnrealizadoOKChanged();
-    #endregion
-		
-		public Tabla_PedidoExplicacion()
-		{
-			this._Tabla_Usuario = default(EntityRef<Tabla_Usuario>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_PedidoExplicacion", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id_PedidoExplicacion
-		{
-			get
-			{
-				return this._id_PedidoExplicacion;
-			}
-			set
-			{
-				if ((this._id_PedidoExplicacion != value))
-				{
-					this.Onid_PedidoExplicacionChanging(value);
-					this.SendPropertyChanging();
-					this._id_PedidoExplicacion = value;
-					this.SendPropertyChanged("id_PedidoExplicacion");
-					this.Onid_PedidoExplicacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Usuario", DbType="Int NOT NULL")]
-		public int id_Usuario
-		{
-			get
-			{
-				return this._id_Usuario;
-			}
-			set
-			{
-				if ((this._id_Usuario != value))
-				{
-					if (this._Tabla_Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_UsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._id_Usuario = value;
-					this.SendPropertyChanged("id_Usuario");
-					this.Onid_UsuarioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaPedidoExplicacion", DbType="DateTime")]
-		public System.Nullable<System.DateTime> fechaPedidoExplicacion
-		{
-			get
-			{
-				return this._fechaPedidoExplicacion;
-			}
-			set
-			{
-				if ((this._fechaPedidoExplicacion != value))
-				{
-					this.OnfechaPedidoExplicacionChanging(value);
-					this.SendPropertyChanging();
-					this._fechaPedidoExplicacion = value;
-					this.SendPropertyChanged("fechaPedidoExplicacion");
-					this.OnfechaPedidoExplicacionChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Administrador", DbType="Int NOT NULL")]
-		public int id_Administrador
-		{
-			get
-			{
-				return this._id_Administrador;
-			}
-			set
-			{
-				if ((this._id_Administrador != value))
-				{
-					this.Onid_AdministradorChanging(value);
-					this.SendPropertyChanging();
-					this._id_Administrador = value;
-					this.SendPropertyChanged("id_Administrador");
-					this.Onid_AdministradorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_realizadoOK", DbType="Bit")]
-		public System.Nullable<bool> realizadoOK
-		{
-			get
-			{
-				return this._realizadoOK;
-			}
-			set
-			{
-				if ((this._realizadoOK != value))
-				{
-					this.OnrealizadoOKChanging(value);
-					this.SendPropertyChanging();
-					this._realizadoOK = value;
-					this.SendPropertyChanged("realizadoOK");
-					this.OnrealizadoOKChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tabla_Usuario_Tabla_PedidoExplicacion", Storage="_Tabla_Usuario", ThisKey="id_Usuario", OtherKey="id_Usuario", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Tabla_Usuario Tabla_Usuario
-		{
-			get
-			{
-				return this._Tabla_Usuario.Entity;
-			}
-			set
-			{
-				Tabla_Usuario previousValue = this._Tabla_Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Tabla_Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tabla_Usuario.Entity = null;
-						previousValue.Tabla_PedidoExplicacion.Remove(this);
-					}
-					this._Tabla_Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Tabla_PedidoExplicacion.Add(this);
-						this._id_Usuario = value.id_Usuario;
-					}
-					else
-					{
-						this._id_Usuario = default(int);
-					}
-					this.SendPropertyChanged("Tabla_Usuario");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tabla_PreguntaClientes")]
 	public partial class Tabla_PreguntaClientes : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -6520,6 +6415,848 @@ namespace Datos
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vista_MostrarListadoMisEjercicios")]
+	public partial class Vista_MostrarListadoMisEjercicios
+	{
+		
+		private int _id_CompraEjercicioExplicaicones;
+		
+		private int _id_Ejercicio;
+		
+		private bool _ejercicio;
+		
+		private bool _explicacion;
+		
+		private int _venvimiento;
+		
+		private System.DateTime _fechaVencimiento;
+		
+		private int _id_Usuario;
+		
+		private string _Titulo;
+		
+		private string _empresa;
+		
+		public Vista_MostrarListadoMisEjercicios()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_CompraEjercicioExplicaicones", DbType="Int NOT NULL")]
+		public int id_CompraEjercicioExplicaicones
+		{
+			get
+			{
+				return this._id_CompraEjercicioExplicaicones;
+			}
+			set
+			{
+				if ((this._id_CompraEjercicioExplicaicones != value))
+				{
+					this._id_CompraEjercicioExplicaicones = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Ejercicio", DbType="Int NOT NULL")]
+		public int id_Ejercicio
+		{
+			get
+			{
+				return this._id_Ejercicio;
+			}
+			set
+			{
+				if ((this._id_Ejercicio != value))
+				{
+					this._id_Ejercicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ejercicio", DbType="Bit NOT NULL")]
+		public bool ejercicio
+		{
+			get
+			{
+				return this._ejercicio;
+			}
+			set
+			{
+				if ((this._ejercicio != value))
+				{
+					this._ejercicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_explicacion", DbType="Bit NOT NULL")]
+		public bool explicacion
+		{
+			get
+			{
+				return this._explicacion;
+			}
+			set
+			{
+				if ((this._explicacion != value))
+				{
+					this._explicacion = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_venvimiento", DbType="Int NOT NULL")]
+		public int venvimiento
+		{
+			get
+			{
+				return this._venvimiento;
+			}
+			set
+			{
+				if ((this._venvimiento != value))
+				{
+					this._venvimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaVencimiento", DbType="DateTime NOT NULL")]
+		public System.DateTime fechaVencimiento
+		{
+			get
+			{
+				return this._fechaVencimiento;
+			}
+			set
+			{
+				if ((this._fechaVencimiento != value))
+				{
+					this._fechaVencimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Usuario", DbType="Int NOT NULL")]
+		public int id_Usuario
+		{
+			get
+			{
+				return this._id_Usuario;
+			}
+			set
+			{
+				if ((this._id_Usuario != value))
+				{
+					this._id_Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Titulo", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Titulo
+		{
+			get
+			{
+				return this._Titulo;
+			}
+			set
+			{
+				if ((this._Titulo != value))
+				{
+					this._Titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_empresa", DbType="NVarChar(10) NOT NULL", CanBeNull=false)]
+		public string empresa
+		{
+			get
+			{
+				return this._empresa;
+			}
+			set
+			{
+				if ((this._empresa != value))
+				{
+					this._empresa = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tabla_PedidoEjercicioVideo")]
+	public partial class Tabla_PedidoEjercicioVideo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_PedidoEjercicioVideo;
+		
+		private int _id_Usuario;
+		
+		private System.Nullable<int> _id_Administrador;
+		
+		private System.Nullable<System.DateTime> _fechaPedidoEjercicioVideo;
+		
+		private string _fichaEjercicioVideo;
+		
+		private string _enunciadoEjercicioVideoMATH;
+		
+		private string _adjuntoEjercicioVideo;
+		
+		private System.Nullable<bool> _realizadoOKPedidoEjercicioVideo;
+		
+		private EntityRef<Tabla_Usuario> _Tabla_Usuario;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_PedidoEjercicioVideoChanging(int value);
+    partial void Onid_PedidoEjercicioVideoChanged();
+    partial void Onid_UsuarioChanging(int value);
+    partial void Onid_UsuarioChanged();
+    partial void Onid_AdministradorChanging(System.Nullable<int> value);
+    partial void Onid_AdministradorChanged();
+    partial void OnfechaPedidoEjercicioVideoChanging(System.Nullable<System.DateTime> value);
+    partial void OnfechaPedidoEjercicioVideoChanged();
+    partial void OnfichaEjercicioVideoChanging(string value);
+    partial void OnfichaEjercicioVideoChanged();
+    partial void OnenunciadoEjercicioVideoMATHChanging(string value);
+    partial void OnenunciadoEjercicioVideoMATHChanged();
+    partial void OnadjuntoEjercicioVideoChanging(string value);
+    partial void OnadjuntoEjercicioVideoChanged();
+    partial void OnrealizadoOKPedidoEjercicioVideoChanging(System.Nullable<bool> value);
+    partial void OnrealizadoOKPedidoEjercicioVideoChanged();
+    #endregion
+		
+		public Tabla_PedidoEjercicioVideo()
+		{
+			this._Tabla_Usuario = default(EntityRef<Tabla_Usuario>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_PedidoEjercicioVideo", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id_PedidoEjercicioVideo
+		{
+			get
+			{
+				return this._id_PedidoEjercicioVideo;
+			}
+			set
+			{
+				if ((this._id_PedidoEjercicioVideo != value))
+				{
+					this.Onid_PedidoEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._id_PedidoEjercicioVideo = value;
+					this.SendPropertyChanged("id_PedidoEjercicioVideo");
+					this.Onid_PedidoEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Usuario", DbType="Int NOT NULL")]
+		public int id_Usuario
+		{
+			get
+			{
+				return this._id_Usuario;
+			}
+			set
+			{
+				if ((this._id_Usuario != value))
+				{
+					if (this._Tabla_Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_UsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._id_Usuario = value;
+					this.SendPropertyChanged("id_Usuario");
+					this.Onid_UsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Administrador", DbType="Int")]
+		public System.Nullable<int> id_Administrador
+		{
+			get
+			{
+				return this._id_Administrador;
+			}
+			set
+			{
+				if ((this._id_Administrador != value))
+				{
+					this.Onid_AdministradorChanging(value);
+					this.SendPropertyChanging();
+					this._id_Administrador = value;
+					this.SendPropertyChanged("id_Administrador");
+					this.Onid_AdministradorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaPedidoEjercicioVideo", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fechaPedidoEjercicioVideo
+		{
+			get
+			{
+				return this._fechaPedidoEjercicioVideo;
+			}
+			set
+			{
+				if ((this._fechaPedidoEjercicioVideo != value))
+				{
+					this.OnfechaPedidoEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._fechaPedidoEjercicioVideo = value;
+					this.SendPropertyChanged("fechaPedidoEjercicioVideo");
+					this.OnfechaPedidoEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fichaEjercicioVideo", DbType="NVarChar(50)")]
+		public string fichaEjercicioVideo
+		{
+			get
+			{
+				return this._fichaEjercicioVideo;
+			}
+			set
+			{
+				if ((this._fichaEjercicioVideo != value))
+				{
+					this.OnfichaEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._fichaEjercicioVideo = value;
+					this.SendPropertyChanged("fichaEjercicioVideo");
+					this.OnfichaEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_enunciadoEjercicioVideoMATH", DbType="NVarChar(50)")]
+		public string enunciadoEjercicioVideoMATH
+		{
+			get
+			{
+				return this._enunciadoEjercicioVideoMATH;
+			}
+			set
+			{
+				if ((this._enunciadoEjercicioVideoMATH != value))
+				{
+					this.OnenunciadoEjercicioVideoMATHChanging(value);
+					this.SendPropertyChanging();
+					this._enunciadoEjercicioVideoMATH = value;
+					this.SendPropertyChanged("enunciadoEjercicioVideoMATH");
+					this.OnenunciadoEjercicioVideoMATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_adjuntoEjercicioVideo", DbType="NVarChar(50)")]
+		public string adjuntoEjercicioVideo
+		{
+			get
+			{
+				return this._adjuntoEjercicioVideo;
+			}
+			set
+			{
+				if ((this._adjuntoEjercicioVideo != value))
+				{
+					this.OnadjuntoEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._adjuntoEjercicioVideo = value;
+					this.SendPropertyChanged("adjuntoEjercicioVideo");
+					this.OnadjuntoEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_realizadoOKPedidoEjercicioVideo", DbType="Bit")]
+		public System.Nullable<bool> realizadoOKPedidoEjercicioVideo
+		{
+			get
+			{
+				return this._realizadoOKPedidoEjercicioVideo;
+			}
+			set
+			{
+				if ((this._realizadoOKPedidoEjercicioVideo != value))
+				{
+					this.OnrealizadoOKPedidoEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._realizadoOKPedidoEjercicioVideo = value;
+					this.SendPropertyChanged("realizadoOKPedidoEjercicioVideo");
+					this.OnrealizadoOKPedidoEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo", Storage="_Tabla_Usuario", ThisKey="id_Usuario", OtherKey="id_Usuario", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Tabla_Usuario Tabla_Usuario
+		{
+			get
+			{
+				return this._Tabla_Usuario.Entity;
+			}
+			set
+			{
+				Tabla_Usuario previousValue = this._Tabla_Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Tabla_Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tabla_Usuario.Entity = null;
+						previousValue.Tabla_PedidoEjercicioVideo.Remove(this);
+					}
+					this._Tabla_Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Tabla_PedidoEjercicioVideo.Add(this);
+						this._id_Usuario = value.id_Usuario;
+					}
+					else
+					{
+						this._id_Usuario = default(int);
+					}
+					this.SendPropertyChanged("Tabla_Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tabla_PedidoExplicacion")]
+	public partial class Tabla_PedidoExplicacion : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_PedidoExplicacion;
+		
+		private int _id_Usuario;
+		
+		private System.Nullable<System.DateTime> _fechaPedidoExplicacion;
+		
+		private System.Nullable<int> _id_Administrador;
+		
+		private System.Nullable<bool> _realizadoOK;
+		
+		private System.Nullable<int> _id_Ejercicio;
+		
+		private System.Nullable<int> _id_Empresa;
+		
+		private EntityRef<Tabla_Usuario> _Tabla_Usuario;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_PedidoExplicacionChanging(int value);
+    partial void Onid_PedidoExplicacionChanged();
+    partial void Onid_UsuarioChanging(int value);
+    partial void Onid_UsuarioChanged();
+    partial void OnfechaPedidoExplicacionChanging(System.Nullable<System.DateTime> value);
+    partial void OnfechaPedidoExplicacionChanged();
+    partial void Onid_AdministradorChanging(System.Nullable<int> value);
+    partial void Onid_AdministradorChanged();
+    partial void OnrealizadoOKChanging(System.Nullable<bool> value);
+    partial void OnrealizadoOKChanged();
+    partial void Onid_EjercicioChanging(System.Nullable<int> value);
+    partial void Onid_EjercicioChanged();
+    partial void Onid_EmpresaChanging(System.Nullable<int> value);
+    partial void Onid_EmpresaChanged();
+    #endregion
+		
+		public Tabla_PedidoExplicacion()
+		{
+			this._Tabla_Usuario = default(EntityRef<Tabla_Usuario>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_PedidoExplicacion", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id_PedidoExplicacion
+		{
+			get
+			{
+				return this._id_PedidoExplicacion;
+			}
+			set
+			{
+				if ((this._id_PedidoExplicacion != value))
+				{
+					this.Onid_PedidoExplicacionChanging(value);
+					this.SendPropertyChanging();
+					this._id_PedidoExplicacion = value;
+					this.SendPropertyChanged("id_PedidoExplicacion");
+					this.Onid_PedidoExplicacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Usuario", DbType="Int NOT NULL")]
+		public int id_Usuario
+		{
+			get
+			{
+				return this._id_Usuario;
+			}
+			set
+			{
+				if ((this._id_Usuario != value))
+				{
+					if (this._Tabla_Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_UsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._id_Usuario = value;
+					this.SendPropertyChanged("id_Usuario");
+					this.Onid_UsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaPedidoExplicacion", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fechaPedidoExplicacion
+		{
+			get
+			{
+				return this._fechaPedidoExplicacion;
+			}
+			set
+			{
+				if ((this._fechaPedidoExplicacion != value))
+				{
+					this.OnfechaPedidoExplicacionChanging(value);
+					this.SendPropertyChanging();
+					this._fechaPedidoExplicacion = value;
+					this.SendPropertyChanged("fechaPedidoExplicacion");
+					this.OnfechaPedidoExplicacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Administrador", DbType="Int")]
+		public System.Nullable<int> id_Administrador
+		{
+			get
+			{
+				return this._id_Administrador;
+			}
+			set
+			{
+				if ((this._id_Administrador != value))
+				{
+					this.Onid_AdministradorChanging(value);
+					this.SendPropertyChanging();
+					this._id_Administrador = value;
+					this.SendPropertyChanged("id_Administrador");
+					this.Onid_AdministradorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_realizadoOK", DbType="Bit")]
+		public System.Nullable<bool> realizadoOK
+		{
+			get
+			{
+				return this._realizadoOK;
+			}
+			set
+			{
+				if ((this._realizadoOK != value))
+				{
+					this.OnrealizadoOKChanging(value);
+					this.SendPropertyChanging();
+					this._realizadoOK = value;
+					this.SendPropertyChanged("realizadoOK");
+					this.OnrealizadoOKChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Ejercicio", DbType="Int")]
+		public System.Nullable<int> id_Ejercicio
+		{
+			get
+			{
+				return this._id_Ejercicio;
+			}
+			set
+			{
+				if ((this._id_Ejercicio != value))
+				{
+					this.Onid_EjercicioChanging(value);
+					this.SendPropertyChanging();
+					this._id_Ejercicio = value;
+					this.SendPropertyChanged("id_Ejercicio");
+					this.Onid_EjercicioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Empresa", DbType="Int")]
+		public System.Nullable<int> id_Empresa
+		{
+			get
+			{
+				return this._id_Empresa;
+			}
+			set
+			{
+				if ((this._id_Empresa != value))
+				{
+					this.Onid_EmpresaChanging(value);
+					this.SendPropertyChanging();
+					this._id_Empresa = value;
+					this.SendPropertyChanged("id_Empresa");
+					this.Onid_EmpresaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tabla_Usuario_Tabla_PedidoExplicacion", Storage="_Tabla_Usuario", ThisKey="id_Usuario", OtherKey="id_Usuario", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Tabla_Usuario Tabla_Usuario
+		{
+			get
+			{
+				return this._Tabla_Usuario.Entity;
+			}
+			set
+			{
+				Tabla_Usuario previousValue = this._Tabla_Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Tabla_Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tabla_Usuario.Entity = null;
+						previousValue.Tabla_PedidoExplicacion.Remove(this);
+					}
+					this._Tabla_Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Tabla_PedidoExplicacion.Add(this);
+						this._id_Usuario = value.id_Usuario;
+					}
+					else
+					{
+						this._id_Usuario = default(int);
+					}
+					this.SendPropertyChanged("Tabla_Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Vista_MostrarListadoMisExplicaciones")]
+	public partial class Vista_MostrarListadoMisExplicaciones
+	{
+		
+		private System.Nullable<int> _id_CompraVideos;
+		
+		private System.Nullable<int> _id_Ejercicio;
+		
+		private System.Nullable<bool> _video;
+		
+		private System.Nullable<int> _vencimiento;
+		
+		private System.Nullable<System.DateTime> _fechaVencimiento;
+		
+		private System.Nullable<int> _id_Usuario;
+		
+		private string _Titulo;
+		
+		private int _id_Empresa;
+		
+		public Vista_MostrarListadoMisExplicaciones()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_CompraVideos", DbType="Int")]
+		public System.Nullable<int> id_CompraVideos
+		{
+			get
+			{
+				return this._id_CompraVideos;
+			}
+			set
+			{
+				if ((this._id_CompraVideos != value))
+				{
+					this._id_CompraVideos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Ejercicio", DbType="Int")]
+		public System.Nullable<int> id_Ejercicio
+		{
+			get
+			{
+				return this._id_Ejercicio;
+			}
+			set
+			{
+				if ((this._id_Ejercicio != value))
+				{
+					this._id_Ejercicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_video", DbType="Bit")]
+		public System.Nullable<bool> video
+		{
+			get
+			{
+				return this._video;
+			}
+			set
+			{
+				if ((this._video != value))
+				{
+					this._video = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vencimiento", DbType="Int")]
+		public System.Nullable<int> vencimiento
+		{
+			get
+			{
+				return this._vencimiento;
+			}
+			set
+			{
+				if ((this._vencimiento != value))
+				{
+					this._vencimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaVencimiento", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fechaVencimiento
+		{
+			get
+			{
+				return this._fechaVencimiento;
+			}
+			set
+			{
+				if ((this._fechaVencimiento != value))
+				{
+					this._fechaVencimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Usuario", DbType="Int")]
+		public System.Nullable<int> id_Usuario
+		{
+			get
+			{
+				return this._id_Usuario;
+			}
+			set
+			{
+				if ((this._id_Usuario != value))
+				{
+					this._id_Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Titulo", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Titulo
+		{
+			get
+			{
+				return this._Titulo;
+			}
+			set
+			{
+				if ((this._Titulo != value))
+				{
+					this._Titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Empresa", DbType="Int NOT NULL")]
+		public int id_Empresa
+		{
+			get
+			{
+				return this._id_Empresa;
+			}
+			set
+			{
+				if ((this._id_Empresa != value))
+				{
+					this._id_Empresa = value;
+				}
+			}
+		}
+	}
+	
 	public partial class consultaPanelControlResult
 	{
 		
@@ -6747,6 +7484,158 @@ namespace Datos
 				if ((this._haber != value))
 				{
 					this._haber = value;
+				}
+			}
+		}
+	}
+	
+	public partial class resultadoMisExplicaiconesResult
+	{
+		
+		private System.Nullable<int> _id_CompraVideos;
+		
+		private System.Nullable<int> _id_Ejercicio;
+		
+		private System.Nullable<bool> _video;
+		
+		private System.Nullable<int> _vencimiento;
+		
+		private System.Nullable<System.DateTime> _fechaVencimiento;
+		
+		private System.Nullable<int> _id_Usuario;
+		
+		private string _Titulo;
+		
+		private int _id_Empresa;
+		
+		public resultadoMisExplicaiconesResult()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_CompraVideos", DbType="Int")]
+		public System.Nullable<int> id_CompraVideos
+		{
+			get
+			{
+				return this._id_CompraVideos;
+			}
+			set
+			{
+				if ((this._id_CompraVideos != value))
+				{
+					this._id_CompraVideos = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Ejercicio", DbType="Int")]
+		public System.Nullable<int> id_Ejercicio
+		{
+			get
+			{
+				return this._id_Ejercicio;
+			}
+			set
+			{
+				if ((this._id_Ejercicio != value))
+				{
+					this._id_Ejercicio = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_video", DbType="Bit")]
+		public System.Nullable<bool> video
+		{
+			get
+			{
+				return this._video;
+			}
+			set
+			{
+				if ((this._video != value))
+				{
+					this._video = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_vencimiento", DbType="Int")]
+		public System.Nullable<int> vencimiento
+		{
+			get
+			{
+				return this._vencimiento;
+			}
+			set
+			{
+				if ((this._vencimiento != value))
+				{
+					this._vencimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaVencimiento", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fechaVencimiento
+		{
+			get
+			{
+				return this._fechaVencimiento;
+			}
+			set
+			{
+				if ((this._fechaVencimiento != value))
+				{
+					this._fechaVencimiento = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Usuario", DbType="Int")]
+		public System.Nullable<int> id_Usuario
+		{
+			get
+			{
+				return this._id_Usuario;
+			}
+			set
+			{
+				if ((this._id_Usuario != value))
+				{
+					this._id_Usuario = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Titulo", DbType="NVarChar(50) NOT NULL", CanBeNull=false)]
+		public string Titulo
+		{
+			get
+			{
+				return this._Titulo;
+			}
+			set
+			{
+				if ((this._Titulo != value))
+				{
+					this._Titulo = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Empresa", DbType="Int NOT NULL")]
+		public int id_Empresa
+		{
+			get
+			{
+				return this._id_Empresa;
+			}
+			set
+			{
+				if ((this._id_Empresa != value))
+				{
+					this._id_Empresa = value;
 				}
 			}
 		}

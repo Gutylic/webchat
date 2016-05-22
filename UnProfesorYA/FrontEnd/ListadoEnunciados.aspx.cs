@@ -45,19 +45,9 @@ namespace FrontEnd
 
         protected void logosAsociados(object sender, DataListItemEventArgs e) // posisiona los logitos al costado de las respuestas del datalist
         {
-            //if ((bool)ViewState["Momento"]) // esto es necesario para saber sobre que datalist trabajo, si sobre el inicial al abrir la pagina o sobre uno de busqueda
-            //{
-            //    resultadoDatalistTitulosEjercicioCompletaResult logoDataList = new resultadoDatalistTitulosEjercicioCompletaResult();
-            //    logoDataList = (resultadoDatalistTitulosEjercicioCompletaResult)e.Item.DataItem;
-            //}
-            //else
-            //{ 
-                Tabla_Ejercicios logoDataList = new Tabla_Ejercicios();           
-                logoDataList = (Tabla_Ejercicios)e.Item.DataItem;            
-            //}
+            Tabla_Ejercicios logoDataList = new Tabla_Ejercicios();           
+            logoDataList = (Tabla_Ejercicios)e.Item.DataItem;            
             
-
-
             System.Web.UI.WebControls.Image Logo = new System.Web.UI.WebControls.Image(); // genero una variable del tipo imagen para cambiar al vuelo la misma
             Logo = (System.Web.UI.WebControls.Image)e.Item.FindControl("Imagen_Logos"); // la imagen se cambiara donde se encuentre el ID = Imagen_Logos
 

@@ -9,8 +9,7 @@
 </head>
 <body>
     <form id="form1" runat="server">
-    <div>
-        reEstoy logueado <br />
+    <div>        
         <br />
         <asp:Label ID="Label1" runat="server" Text=""></asp:Label>
         <br />
@@ -29,6 +28,15 @@
 
         <br />
         <asp:Button ID="BtnDataList" runat="server" Text="Ejercicios" OnClick="BtnDataList_Click" />
+
+        <br />
+        <asp:Button ID="BtnMisEjercicios" runat="server" Text="Mis Ejercicios" OnClick="BtnMisEjercicios_Click" />
+
+        <br />
+        <asp:Button ID="BtnMisExplicaciones" runat="server" Text="Mis Explicaciones" OnClick="BtnMisExplicaciones_Click" />
+
+        <br />
+        <asp:Button ID="BtnProfesorOnLine" runat="server" Text="Profesor On-Line" OnClick="BtnProfesorOnLine_Click" />
 
     </div>
     </form>

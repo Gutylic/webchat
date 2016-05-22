@@ -88,9 +88,17 @@
     <Content Include="js\botonfacebook.js" />
     <Content Include="ListadoEnunciados.aspx" />
     <Content Include="Logueo.aspx" />
+    <Content Include="MisEjercicios.aspx" />
+    <Content Include="MisExplicaciones.aspx" />
     <Content Include="PanelControl.aspx" />
     <Content Include="PanelSaldo.aspx" />
+    <Content Include="ProfesorOnLine.aspx" />
     <Content Include="Registro.aspx" />
+    <Content Include="RespuestaMisEjercicios.aspx" />
+    <Content Include="RespuestaMisExplicaciones.aspx" />
+    <Content Include="RespuestasEnunciados.aspx" />
+    <Content Include="RespuestasFichas.aspx" />
+    <Content Include="Videos.aspx" />
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +165,20 @@
     <Compile Include="Logueo.aspx.designer.cs">
       <DependentUpon>Logueo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="MisEjercicios.aspx.cs">
+      <DependentUpon>MisEjercicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisEjercicios.aspx.designer.cs">
+      <DependentUpon>MisEjercicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="MisExplicaciones.aspx.cs">
+      <DependentUpon>MisExplicaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="MisExplicaciones.aspx.designer.cs">
+      <DependentUpon>MisExplicaciones.aspx</DependentUpon>
+    </Compile>
     <Compile Include="PanelControl.aspx.cs">
       <DependentUpon>PanelControl.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -171,6 +193,13 @@
     <Compile Include="PanelSaldo.aspx.designer.cs">
       <DependentUpon>PanelSaldo.aspx</DependentUpon>
     </Compile>
+    <Compile Include="ProfesorOnLine.aspx.cs">
+      <DependentUpon>ProfesorOnLine.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProfesorOnLine.aspx.designer.cs">
+      <DependentUpon>ProfesorOnLine.aspx</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Registro.aspx.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
@@ -178,6 +207,41 @@
     </Compile>
     <Compile Include="Registro.aspx.designer.cs">
       <DependentUpon>Registro.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RespuestaMisEjercicios.aspx.cs">
+      <DependentUpon>RespuestaMisEjercicios.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RespuestaMisEjercicios.aspx.designer.cs">
+      <DependentUpon>RespuestaMisEjercicios.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RespuestaMisExplicaciones.aspx.cs">
+      <DependentUpon>RespuestaMisExplicaciones.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RespuestaMisExplicaciones.aspx.designer.cs">
+      <DependentUpon>RespuestaMisExplicaciones.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RespuestasEnunciados.aspx.cs">
+      <DependentUpon>RespuestasEnunciados.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RespuestasEnunciados.aspx.designer.cs">
+      <DependentUpon>RespuestasEnunciados.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="RespuestasFichas.aspx.cs">
+      <DependentUpon>RespuestasFichas.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="RespuestasFichas.aspx.designer.cs">
+      <DependentUpon>RespuestasFichas.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="Videos.aspx.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="Videos.aspx.designer.cs">
+      <DependentUpon>Videos.aspx</DependentUpon>
     </Compile>
   </ItemGroup>
   <ItemGroup>

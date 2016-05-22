@@ -5,3 +5,10 @@ C:\Users\Licen\Desktop\whatchat\UnProfesorYA\Logica\obj\Debug\Logica.dll
 C:\Users\Licen\Desktop\whatchat\UnProfesorYA\Logica\obj\Debug\Logica.pdb
 C:\Users\Licen\Desktop\whatchat\UnProfesorYA\Logica\bin\Debug\Datos.dll
 C:\Users\Licen\Desktop\whatchat\UnProfesorYA\Logica\bin\Debug\Datos.pdb
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Logica\bin\Debug\Logica.dll
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Logica\bin\Debug\Logica.pdb
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Logica\bin\Debug\Datos.dll
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Logica\bin\Debug\Datos.pdb
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Logica\obj\Debug\Logica.csprojResolveAssemblyReference.cache
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Logica\obj\Debug\Logica.dll
+C:\Users\Licen\Documents\GitHub\webchat\UnProfesorYA\Logica\obj\Debug\Logica.pdb

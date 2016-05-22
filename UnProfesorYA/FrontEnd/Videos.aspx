@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="MisVideos.aspx.cs" Inherits="FrontEnd.MisVideos" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Videos.aspx.cs" Inherits="FrontEnd.Videos" %>
 
 <!DOCTYPE html>
 
