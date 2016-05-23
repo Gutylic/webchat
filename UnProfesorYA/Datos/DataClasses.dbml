@@ -100,7 +100,7 @@
     </Type>
   </Table>
   <Table Name="dbo.Tabla_EnunciadoEjercicios" Member="Tabla_EnunciadoEjercicios">
-    <Type Name="Tabla_EnunciadoEjercicios">
+    <Type Name="Tabla_EnunciadoEjercicios" Id="ID8">
       <Column Name="id_Ejercicio" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="enunciadoMath" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="enunciadoLimpio" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
@@ -966,6 +966,17 @@
     <Parameter Name="fichaEjercicioVideo" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="enunciadoEjercicioVideoMath" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="adjuntoEjercicioVideo" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.resultadoDatalistTitulosEjercicioEjercicios" Method="resultadoDatalistTitulosEjercicioEjercicios">
+    <Parameter Name="enunciadoEjercicio_1" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="enunciadoEjercicio_2" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType IdRef="ID8" />
+  </Function>
+  <Function Name="dbo.resultadoDatalistTitulosEjercicioEjerciciosPaginado" Method="resultadoDatalistTitulosEjercicioEjerciciosPaginado">
+    <Parameter Name="enunciadoEjercicio_1" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="enunciadoEjercicio_2" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="pagina" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
 </Database>

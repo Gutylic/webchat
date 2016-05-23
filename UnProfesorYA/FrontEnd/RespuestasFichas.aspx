@@ -24,25 +24,25 @@
                     <asp:Button ID="BtnMiExplicacion" runat="server" Text="Mi explicacion" OnClick="BtnMiExplicacion_Click" />
                 </td>
                 <td>
-                    <asp:Button ID="BtnIrEnunciado" runat="server" Text="ir a enunciado"/>
+                    <asp:Button ID="BtnIrEnunciado" runat="server" Text="ir a enunciado" OnClick="BtnirEnunciado_Click"/>
                 </td>
             </tr>
-            </table>
+        </table>
            
             <asp:DataList ID="Resultado_DataList_Ficha" CssClass="datalist_resultado" OnItemCommand="Identificador" runat="server" Width="890px" >
                 <ItemTemplate>
                     <table style="width: 100%;">
                         <tr>
-                            <td><asp:Image style="width:50%; margin-bottom:5px" ID="Imagen_Enunciado" ImageUrl='<%#"http://www.colegioeba.com/enunciado/Enunciado"+ Eval("ID_Ejercicio") + ".png"%>' runat="server" /></td>                            
+                            <td><asp:Image style="width:50%; margin-bottom:5px" ID="Imagen_Enunciado" ImageUrl='<%#"http://www.colegioeba.com/enunciado/Enunciado"+ Eval("id_Ejercicio") + ".png"%>' runat="server" /></td>                            
                         </tr>
                         <tr>
-                            <td><%--<asp:Image style="width:21.25%; margin-bottom:5px" ID="Imagen_Ficha" ImageUrl='<%#"http://www.colegioeba.com/ficha/Ficha"+ Eval("ID_Ejercicio") + ".png"%>' runat="server" />--%></td>                           
+                            <td><%--<asp:Image style="width:21.25%; margin-bottom:5px" ID="Imagen_Ficha" ImageUrl='<%#"http://www.colegioeba.com/ficha/Ficha"+ Eval("id_Ejercicio") + ".png"%>' runat="server" />--%></td>                           
                         </tr>
                         <tr>
-                            <td><asp:Button style="width:23%" ID="Boton_Comprar_Ejercicio" ToolTip="quiere el ejercicio resuelto" CommandArgument="1" runat="server" CommandName='<%# Eval ("ID_Ejercicio") %>' Text="Ejercicio" /></td>                            
+                            <td><asp:Button style="width:23%" ID="Boton_Comprar_Ejercicio" ToolTip="quiere el ejercicio resuelto" CommandArgument="1" runat="server" CommandName='<%# Eval ("id_Ejercicio") %>' Text="Ejercicio" /></td>                            
                         </tr>
                         <tr>
-                            <td><asp:Button style="width:23%" ID="Boton_Comprar_Explicacion" ToolTip="quiere el ejercicio explicado" CommandArgument="2" runat="server" CommandName='<%# Eval ("ID_Ejercicio") %>' Text="Explicación" /></td>
+                            <td><asp:Button style="width:23%" ID="Boton_Comprar_Explicacion" ToolTip="quiere el ejercicio explicado" CommandArgument="2" runat="server" CommandName='<%# Eval ("id_Ejercicio") %>' Text="Explicación" /></td>
                         </tr>
                     </table>                                                                    
                 </ItemTemplate>

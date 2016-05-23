@@ -332,7 +332,7 @@ namespace FrontEnd
                     break;
 
                 case 2: // compro la explicacion del ejercicio                   
-                    Session["Identificador"] = int.Parse(e.CommandName); // identificador para saber que linkbutton presione 
+                   
                     bool? Valor_Explicacion = dME.analizarSiComproLaExplicacion(Convert.ToInt32(Session["Variable_ID_Usuario"]), Convert.ToInt16(Session["Identificador"])); //resultado para saber si compro la explicacion o la tiene que mostrar
                     if (Valor_Explicacion == false) // muestra que la explicacion ya fue comprada solo necesita mostrarla 
                     {

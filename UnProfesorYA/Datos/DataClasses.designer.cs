@@ -1056,6 +1056,21 @@ namespace Datos
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, fichaEjercicioVideo, enunciadoEjercicioVideoMath, adjuntoEjercicioVideo);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.resultadoDatalistTitulosEjercicioEjercicios")]
+		public ISingleResult<Tabla_EnunciadoEjercicios> resultadoDatalistTitulosEjercicioEjercicios([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string enunciadoEjercicio_1, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string enunciadoEjercicio_2)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), enunciadoEjercicio_1, enunciadoEjercicio_2);
+			return ((ISingleResult<Tabla_EnunciadoEjercicios>)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.resultadoDatalistTitulosEjercicioEjerciciosPaginado")]
+		public int resultadoDatalistTitulosEjercicioEjerciciosPaginado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string enunciadoEjercicio_1, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string enunciadoEjercicio_2, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> pagina)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), enunciadoEjercicio_1, enunciadoEjercicio_2, pagina);
+			pagina = ((System.Nullable<int>)(result.GetParameterValue(2)));
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tabla_Ano")]

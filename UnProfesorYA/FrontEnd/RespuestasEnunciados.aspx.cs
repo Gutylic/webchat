@@ -4,6 +4,8 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using Datos;
+using Logica;
 
 namespace FrontEnd
 {
@@ -16,7 +18,8 @@ namespace FrontEnd
         // falta ver como busco el enunciado
 
 
-         diseñoPaginaFicha dPF = new diseñoPaginaFicha();
+        diseñoPaginaEnunciado dPE = new diseñoPaginaEnunciado();
+
         dataListInicialBusqueda dLIB = new dataListInicialBusqueda();
         datosMisEjercicios dME = new datosMisEjercicios();
         compraEjerciciosDataList cEDL = new compraEjerciciosDataList();
@@ -67,16 +70,16 @@ namespace FrontEnd
 
             Cargar_Variables_De_URL(Request.QueryString["Maestro"], Request.QueryString["Ano"], Request.QueryString["Tema"], Request.QueryString["Colegio"], Request.QueryString["Materia"], Request.QueryString["Enunciado1"], Request.QueryString["Enunciado2"], Convert.ToBoolean(Request.QueryString["Boton_Enunciado"]), Convert.ToBoolean(Request.QueryString["Boton_Ficha"]), Convert.ToInt16(Request.QueryString["Caso"]), Convert.ToBoolean(Request.QueryString["Boton_MiEjercicio"]), Convert.ToBoolean(Request.QueryString["Boton_MiExplicacion"])); // carga las variables de la URL   
 
-            Listado_De_Parecidos((string)ViewState["Etiqueta_Maestro"], (string)ViewState["Etiqueta_Ano"], (string)ViewState["Etiqueta_Colegio"], (string)ViewState["Etiqueta_Materia"], (string)ViewState["Etiqueta_Tema"], 0);// Llama al datalist de enunciados parecidos, desde la pagina cero
+            Listado_De_Parecidos(Convert.ToString(ViewState["Enunciado1"]), Convert.ToString(ViewState["Enunciado2"]), 0);// Llama al datalist de enunciados parecidos, desde la pagina cero
             Condiciones_Paginacion(); // datos para armado de la paginacion del datalist
                        
-            if ((bool)ViewState["Boton_Enunciado"]) // bloquea el boton ver enunciados
+            if ((bool)ViewState["Boton_Ficha"]) // bloquea el boton ver enunciados
             {
-                BtnIrEnunciado.Enabled = true;
+                BtnIrFicha.Enabled = true;
             }
             else
             {
-                BtnIrEnunciado.Enabled = false;
+                BtnIrFicha.Enabled = false;
             }
                         
         }
@@ -147,16 +150,24 @@ namespace FrontEnd
                     pOL.cargarTablaEjercicioVideosPedidosEjercicios(Convert.ToUInt16(Session["Variable_ID_Usuario"]), Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Length - 11), Convert.ToString(Session["Nombre_Enunciado_Math"]).Substring(11, Convert.ToString(Session["Nombre_Enunciado_Math"]).Length - 11), Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Length - 11));
                     lPOL.avisoAdjuntoEnunciadoFichaEnviado(Convert.ToString(Session["Name_Usuario"])); 
                 }
-                if (Convert.ToInt16(ViewState["Caso"]) == 2) // envio Adjunto Ficha
+                if (Convert.ToInt16(ViewState["Caso"]) == 1) // envio Adjunto Enunciado
                 {
-                    pOL.cargarTablaEjercicioVideosPedidosEjercicios(Convert.ToUInt16(Session["Variable_ID_Usuario"]), Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Length - 11),null, Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Length - 11));
-                    lPOL.avisoAdjuntoSoloEnviado(Convert.ToString(Session["Name_Usuario"])); 
+                    pOL.cargarTablaEjercicioVideosPedidosEjercicios(Convert.ToUInt16(Session["Variable_ID_Usuario"]),null,Convert.ToString(Session["Nombre_Enunciado_Math"]).Substring(11, Convert.ToString(Session["Nombre_Enunciado_Math"]).Length - 11), Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Length - 11));
+                    lPOL.avisoAdjuntoEnunciadoEnviado(Convert.ToString(Session["Name_Usuario"])); 
                 }
                 if (Convert.ToInt16(ViewState["Caso"]) == 6) // envio Enunciado Ficha
                 {
                     pOL.cargarTablaEjercicioVideosPedidosEjercicios(Convert.ToUInt16(Session["Variable_ID_Usuario"]), Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Length - 11), Convert.ToString(Session["Nombre_Enunciado_Math"]).Substring(11, Convert.ToString(Session["Nombre_Enunciado_Math"]).Length - 11), null);
                     lPOL.avisoEnunciadoFichaEnviado(Convert.ToString(Session["Name_Usuario"]));
-                }       
+                }
+                if (Convert.ToInt16(ViewState["Caso"]) == 5) // envio Enunciado solo
+                {
+                    pOL.cargarTablaEjercicioVideosPedidosEjercicios(Convert.ToUInt16(Session["Variable_ID_Usuario"]), null, Convert.ToString(Session["Nombre_Enunciado_Math"]).Substring(11, Convert.ToString(Session["Nombre_Enunciado_Math"]).Length - 11), null);
+                    lPOL.avisoEnunciadoEnviado(Convert.ToString(Session["Name_Usuario"]));
+                }   
+
+
+
                 return;
             }
             return;
@@ -228,9 +239,9 @@ namespace FrontEnd
                     pOL.cargarTablaEjercicioVideosPedidos(Convert.ToUInt16(Session["Variable_ID_Usuario"]), Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Length - 11), Convert.ToString(Session["Nombre_Enunciado_Math"]).Substring(11, Convert.ToString(Session["Nombre_Enunciado_Math"]).Length - 11), Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Length - 11));
                     lPOL.avisoAdjuntoEnunciadoFichaEnviado(Convert.ToString(Session["Name_Usuario"]));
                 }
-                if (Convert.ToInt16(ViewState["Caso"]) == 2) // envio Adjunto Ficha
+                if (Convert.ToInt16(ViewState["Caso"]) == 1) // envio Adjunto Enunciado
                 {
-                    pOL.cargarTablaEjercicioVideosPedidos(Convert.ToUInt16(Session["Variable_ID_Usuario"]), Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Length - 11), null, Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Length - 11));
+                    pOL.cargarTablaEjercicioVideosPedidos(Convert.ToUInt16(Session["Variable_ID_Usuario"]),null, Convert.ToString(Session["Nombre_Enunciado_Math"]).Substring(11, Convert.ToString(Session["Nombre_Enunciado_Math"]).Length - 11), Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Adjunto"]).Length - 11));
                     lPOL.avisoAdjuntoSoloEnviado(Convert.ToString(Session["Name_Usuario"]));
                 }
                 if (Convert.ToInt16(ViewState["Caso"]) == 6) // envio Enunciado Ficha
@@ -238,32 +249,41 @@ namespace FrontEnd
                     pOL.cargarTablaEjercicioVideosPedidos(Convert.ToUInt16(Session["Variable_ID_Usuario"]), Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Substring(11, Convert.ToString(Session["Nombre_Adjunto_Ficha"]).Length - 11), Convert.ToString(Session["Nombre_Enunciado_Math"]).Substring(11, Convert.ToString(Session["Nombre_Enunciado_Math"]).Length - 11), null);
                     lPOL.avisoEnunciadoFichaEnviado(Convert.ToString(Session["Name_Usuario"]));
                 }
+                if (Convert.ToInt16(ViewState["Caso"]) == 5) // envio Enunciado solo
+                {
+                    pOL.cargarTablaEjercicioVideosPedidos(Convert.ToUInt16(Session["Variable_ID_Usuario"]), null, Convert.ToString(Session["Nombre_Enunciado_Math"]).Substring(11, Convert.ToString(Session["Nombre_Enunciado_Math"]).Length - 11), null);
+                    lPOL.avisoEnunciadoEnviado(Convert.ToString(Session["Name_Usuario"]));
+                }
                 return;
             }
             return;
                     
         }
 
-        protected void BtnirEnunciado_Click(object sender, EventArgs e)
+        protected void BtnirFicha_Click(object sender, EventArgs e)
         {
-            string pagina = "RespuestasEnunciado.aspx?Boton_Enunciado=true&Boton_Ficha=true&Boton_MiEjercicio=" + Convert.ToBoolean(ViewState["BtnMiEj"]) + "&Boton_MiExplicacion=" + Convert.ToBoolean(ViewState["BtnMiExp"]) + "&Enunciado1=" + Convert.ToString(ViewState["Enunciado1"]) + "&Enunciado2=" + Convert.ToString(ViewState["Enunciado2"]) + "&Caso=" + Convert.ToUInt16(ViewState["Caso"]) + "&Tema=" + Convert.ToString(Request.QueryString["Maestro"]) + "&Materia=" + Convert.ToString(Request.QueryString["Materia"]) + "&Colegio=" + Convert.ToString(Request.QueryString["Colegio"]) + "&Ano=" + Convert.ToString(Request.QueryString["Ano"]) + "&Maestro=" + Convert.ToString(Request.QueryString["Maestro"]); // busca por ficha y bloquea el boton de buscar por enunciado
+            string pagina = "RespuestasFichas.aspx?Boton_Enunciado=true&Boton_Ficha=true&Boton_MiEjercicio=" + Convert.ToBoolean(ViewState["BtnMiEj"]) + "&Boton_MiExplicacion=" + Convert.ToBoolean(ViewState["BtnMiExp"]) + "&Enunciado1=" + Convert.ToString(ViewState["Enunciado1"]) + "&Enunciado2=" + Convert.ToString(ViewState["Enunciado2"]) + "&Caso=" + Convert.ToUInt16(ViewState["Caso"]) + "&Tema=" + Convert.ToString(Request.QueryString["Maestro"]) + "&Materia=" + Convert.ToString(Request.QueryString["Materia"]) + "&Colegio=" + Convert.ToString(Request.QueryString["Colegio"]) + "&Ano=" + Convert.ToString(Request.QueryString["Ano"]) + "&Maestro=" + Convert.ToString(Request.QueryString["Maestro"]); // busca por ficha y bloquea el boton de buscar por enunciado
             Response.Redirect(pagina);
         }
 
-        public void Listado_De_Parecidos(string Maestro, string Ano, string Colegio, string Materia, string Tema, int Pagina)
+        public void Listado_De_Parecidos(string enunciado1, string enunciado2, int Pagina)
         {
-            Resultado_DataList_Ficha.DataSource = dPF.DataListFicha(Maestro, Ano, Colegio, Materia, Tema).Skip(Pagina * 5).Take(5); //datalist que contiene las fichas
-            Resultado_DataList_Ficha.DataBind();
+            Resultado_DataList_Enunciado.DataSource = dPE.DataListEnunciado(enunciado1,enunciado2).Skip(Pagina * 5).Take(5); //datalist que contiene las fichas
+            Resultado_DataList_Enunciado.DataBind();
 
         }
 
+      
+        #region DataList
+        
         public void Identificador(object sender, DataListCommandEventArgs e)
         {
             Session["Identificador"] = int.Parse(e.CommandName); // identifica el ID correspondiente al ejercicio
             int Boton_Presionado = int.Parse(e.CommandArgument.ToString()); // identifica si presione el boton de resolver el ejercicio o el de explicar
             switch (Boton_Presionado)
             {
-                case 1: // boton de ejercicios
+                case 1: // compro la resolucion del ejercicio                    
+
                     bool? Valor_Ejercicio = dME.analizarSiComproElEjercicio(Convert.ToInt32(Session["Variable_ID_Usuario"]), Convert.ToInt16(Session["Identificador"])); //resultado para saber si compro el ejercicio o lo tengo que mostrar
                     if (Valor_Ejercicio == false) 
                     {
@@ -335,9 +355,12 @@ namespace FrontEnd
                     }
                     break;
 
-                case 2: // compro la explicacion del ejercicio                   
-                    Session["Identificador"] = int.Parse(e.CommandName); // identificador para saber que linkbutton presione 
-                    bool? Valor_Explicacion = dME.analizarSiComproLaExplicacion(Convert.ToInt32(Session["Variable_ID_Usuario"]), Convert.ToInt16(Session["Identificador"])); //resultado para saber si compro la explicacion o la tiene que mostrar
+
+
+
+                case 2: // compro la explicacion del ejercicio                    
+
+                bool? Valor_Explicacion = dME.analizarSiComproLaExplicacion(Convert.ToInt32(Session["Variable_ID_Usuario"]), Convert.ToInt16(Session["Identificador"])); //resultado para saber si compro la explicacion o la tiene que mostrar
                     if (Valor_Explicacion == false) // muestra que la explicacion ya fue comprada solo necesita mostrarla 
                     {
                         Response.Redirect("RespuestaMisExplicaciones.aspx");
@@ -408,71 +431,7 @@ namespace FrontEnd
                         return;
                     }
 
-                    break;
-                    
-            }
-        }
-
-
-        #region DataList
-
-        public void Listado_De_Parecidos(string Enunciado_1, string Enunciado_2, int Pagina)
-        {
-            Resultado_DataList_Enunciado.DataSource = LBPE.Logica_Mostrar_DataList_De_Productos_Sumilares_X_Enunciado(Enunciado_1, Enunciado_2).Skip(Pagina * 5).Take(5); // datalist que muestra los enunciados similares de a 10 datos 
-            Resultado_DataList_Enunciado.DataBind();
-        }
-
-        public void Identificador(object sender, DataListCommandEventArgs e)
-        {
-            int Identificador = int.Parse(e.CommandName); // identifica el ID correspondiente al ejercicio
-            int Boton_Presionado = int.Parse(e.CommandArgument.ToString()); // identifica si presione el boton de resolver el ejercicio o el de explicar
-            switch (Boton_Presionado)
-            {
-                case 1: // compro la resolucion del ejercicio                    
-
-                    int Ejercicio = LBPE.Logica_Comprar_Ejercicio_Desde_Pagina_Enunciado(Convert.ToInt32(Session["Variable_ID_Usuario"]), Identificador, Request.UserHostAddress.ToString(), 2);
-
-                    if (Ejercicio == -1) // el ejercicio ya fue comprado
-                    {
-                        ScriptManager.RegisterClientScriptBlock(Page, typeof(string), "", "alert('usted ya ha comprado este ejercicio');", true);
-                        return;
-                    }
-                    if (Ejercicio == 1) // compro el ejercicio todo OK
-                    {
-                        LBPE.Logica_Bonificacion_X_Cantidad(Convert.ToInt32(Session["Variable_ID_Usuario"]), 2, Request.UserHostAddress.ToString());
-                        ScriptManager.RegisterClientScriptBlock(Page, typeof(string), "", "alert('su compra fué satisfactoria, la respuesta del ejercicio esta en su carpeta de mis ejercicios');", true);
-                        return;
-                    }
-                    if (Ejercicio == 0) // no compro el ejercicio por no tener plata
-                    {
-                        ScriptManager.RegisterClientScriptBlock(Page, typeof(string), "", "alert('usted no cuenta con suficiente crédito para realizar la consulta, pida un préstamo SOS en su panel de crédito');", true);
-                        return;
-                    } // no se conecto a la base de datos
-                    ScriptManager.RegisterClientScriptBlock(Page, typeof(string), "", "alert('en estos momentos no podemos realizar su consulta');", true);
-                    break;
-
-                case 2: // compro la explicacion del ejercicio                    
-
-                    int Explicacion = LBPE.Logica_Comprar_Explicacion_Desde_Pagina_Enunciado(Convert.ToInt32(Session["Variable_ID_Usuario"]), Identificador, Request.UserHostAddress.ToString(), 2);
-
-                    if (Explicacion == -1) // ya lo compre
-                    {
-                        ScriptManager.RegisterClientScriptBlock(Page, typeof(string), "", "alert('usted ya ha comprado esta explicación');", true);
-                        return;
-                    }
-                    if (Explicacion == 1) // comprado ok
-                    {
-                        LBPE.Logica_Bonificacion_X_Cantidad(Convert.ToInt32(Session["Variable_ID_Usuario"]), 2, Request.UserHostAddress.ToString());
-                        ScriptManager.RegisterClientScriptBlock(Page, typeof(string), "", "alert('su compra fué satisfactoria, la respuesta del ejercicio esta en su carpeta de mis ejercicios');", true);
-                        return;
-                    }
-                    if (Explicacion == 0) // no tiene plata
-                    {
-                        ScriptManager.RegisterClientScriptBlock(Page, typeof(string), "", "alert('usted no cuenta con suficiente crédito para realizar la consulta, pida un préstamo SOS en su panel de crédito');", true);
-                        return;
-                    }
-                    ScriptManager.RegisterClientScriptBlock(Page, typeof(string), "", "alert('en estos momentos no podemos realizar su consulta');", true);
-                    break;
+                    break;    
 
             }
         }
@@ -487,7 +446,7 @@ namespace FrontEnd
             Centros_Paginados.Visible = false; // contenedor de los paginados siguiente y anterior centrales
             Siguiente_Primero.Visible = true; // siguiente primero arranca true
             Anterior_Ultimo.Visible = false; // anterior ultimo es false
-            ViewState["Cantidad_De_Datos_Enunciado"] = LBPE.Logica_Paginado_DataList_Enunciado((string)ViewState["Enunciado_1"], (string)ViewState["Enunciado_2"]); //cantidad de datos al buscar por enunciados
+            ViewState["Cantidad_De_Datos_Enunciado"] = dPE.paginadoDataListEnunciado((string)ViewState["Enunciado_1"], (string)ViewState["Enunciado_2"]); //cantidad de datos al buscar por enunciados
             ViewState["Cantidad_De_Paginas_Enunciado"] = (int)ViewState["Cantidad_De_Datos_Enunciado"] / 5; //cantidad de paginas que se generan empezando por el cero
             ViewState["Resto_Enunciado"] = (int)ViewState["Cantidad_De_Datos_Enunciado"] % 5; // cantidad de ejercicios que faltan para completar una hoja
             if ((int)ViewState["Resto_Enunciado"] == 0) // si el resto es exacto necesito una hoja menos porque se arranca de la hoja cero
