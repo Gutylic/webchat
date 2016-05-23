@@ -55,6 +55,7 @@
     <Compile Include="botonesListado.cs" />
     <Compile Include="datosMisEjercicios.cs" />
     <Compile Include="datosMisExplicaciones.cs" />
+    <Compile Include="diseñoPaginaFicha.cs" />
     <Compile Include="envioMensajeCliente.cs" />
     <Compile Include="obtenerRespuestaVisible.cs" />
     <Compile Include="panelDeUsuarios.cs" />

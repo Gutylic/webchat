@@ -206,8 +206,7 @@ namespace Logica
             smtp.Send(Mio);
 
         }
-
-
+        
         public void archivoCrearEnunciado(string enunciado, string usuario) // carga dos archivos en c: correspondiente a los enunciados
         {            
             string enunciado_corregido = corregirEnunciadoProfesor(enunciado); // corrigiendo el enunciado
@@ -332,6 +331,82 @@ namespace Logica
             smtp.EnableSsl = true;
             smtp.Send(Mio);
 
+        }
+
+        public class dosDatosStringParaBuscarPorEnunciado // clase extra utilizada para que alguna clase me devuelva dos valores
+        {
+            public string Valor_1 { get; set; }
+            public string Valor_2 { get; set; }
+        }
+
+        public dosDatosStringParaBuscarPorEnunciado logicaEnunciadosAl25(string Enunciado)
+        {
+            dosDatosStringParaBuscarPorEnunciado Datos = new dosDatosStringParaBuscarPorEnunciado();
+           
+            string[] Palabras = Enunciado.Split(' '); // separa por palabras
+            int Cantidad_De_Palabras = Palabras.Length; // cuento cuantas palabras tiene el enunciado
+            int Porcentaje = Cantidad_De_Palabras / 4; // divido al enunciado en 4 partes con la misma cantidad de palagras 
+            int Resto = Cantidad_De_Palabras % 4; // caso especial de no ser divisible por 4 la cantidad de palabras del enunciado
+            int Palabras_Exactas;
+            int Palabras_Erroneas;
+
+            if (Cantidad_De_Palabras == 1) // el caso especial de una sola palabra
+            {
+                Datos.Valor_1 = "\"" + Palabras[0].Trim() + "\"";  // Variable 1
+                Datos.Valor_2 = "\"" + Palabras[0].Trim() + "\"";  // Variable 2          
+                return Datos;
+            }
+            if (Cantidad_De_Palabras == 2) // el caso especial de dos palabras
+            {
+                Datos.Valor_1 = "\"" + Palabras[0].Trim() + "\"";  // Variable 1
+                Datos.Valor_2 = "\"" + Palabras[1].Trim() + "\"";  // Variable 2          
+                return Datos;
+            }
+            if (Cantidad_De_Palabras == 3) // el caso especial de tres palabras
+            {
+                Datos.Valor_1 = "\"" + Palabras[0].Trim() + "\"";  // Variable 1
+                Datos.Valor_2 = "\"" + Palabras[2].Trim() + "\"";  // Variable 2          
+                return Datos;
+            }
+
+
+            if (Resto != 0) // le suma una palabra si no puedo dividir exactamente el enunciado en 4
+            {
+                Palabras_Exactas = Porcentaje + 1;
+
+            }
+            else // enunciado divisible por 4
+            {
+                Palabras_Exactas = Porcentaje;
+            }
+
+            if (Resto == 1 || Resto == 2) 
+            {
+                Palabras_Erroneas = Porcentaje;
+            }
+            else
+            {
+                Palabras_Erroneas = Porcentaje + 1;
+            }
+
+            string[] Palabras_Armadas = new string[Palabras_Exactas];
+            string[] Palabra = new string[2];
+
+            for (int i = 0; i < Palabras_Exactas; i++)
+            {
+                Palabra[0] = Palabra[0] + " " + Palabras[i];
+
+            }
+
+            for (int i = (Palabras_Exactas + Palabras_Erroneas); i < (2 * Palabras_Exactas + Palabras_Erroneas); i++)
+            {
+                Palabra[1] = Palabra[1] + " " + Palabras[i];
+
+            }
+
+            Datos.Valor_1 = "\"" + Palabra[0].Trim() + "\"";  // Variable 1
+            Datos.Valor_2 = "\"" + Palabra[1].Trim() + "\"";  // Variable 2          
+            return Datos;
         }
 
     }

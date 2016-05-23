@@ -249,8 +249,8 @@
       <Association Name="Tabla_Usuario_Tabla_MisExplicaciones" Member="Tabla_MisExplicaciones" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_MisExplicaciones" />
       <Association Name="Tabla_Usuario_Tabla_Movimientos" Member="Tabla_Movimientos" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Movimientos" />
       <Association Name="Tabla_Usuario_Tabla_UsuarioCredito" Member="Tabla_UsuarioCredito" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_UsuarioCredito" />
-      <Association Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo" Member="Tabla_PedidoEjercicioVideo" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_PedidoEjercicioVideo" />
       <Association Name="Tabla_Usuario_Tabla_PedidoExplicacion" Member="Tabla_PedidoExplicacion" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_PedidoExplicacion" />
+      <Association Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo" Member="Tabla_PedidoEjercicioVideo" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_PedidoEjercicioVideo" />
       <Association Name="Tabla_Empresa_Tabla_Usuario" Member="Tabla_Empresa" ThisKey="id_Empresa" OtherKey="id_Empresa" Type="Tabla_Empresa" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
@@ -378,19 +378,6 @@
       <Column Name="empresa" Type="System.String" DbType="NVarChar(10) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
-  <Table Name="dbo.Tabla_PedidoEjercicioVideo" Member="Tabla_PedidoEjercicioVideo">
-    <Type Name="Tabla_PedidoEjercicioVideo">
-      <Column Name="id_PedidoEjercicioVideo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="id_Administrador" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="fechaPedidoEjercicioVideo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="fichaEjercicioVideo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="enunciadoEjercicioVideoMATH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="adjuntoEjercicioVideo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="realizadoOKPedidoEjercicioVideo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.Tabla_PedidoExplicacion" Member="Tabla_PedidoExplicacion">
     <Type Name="Tabla_PedidoExplicacion">
       <Column Name="id_PedidoExplicacion" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
@@ -413,6 +400,20 @@
       <Column Name="id_Usuario" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Titulo" Type="System.String" DbType="NVarChar(50) NOT NULL" CanBeNull="false" />
       <Column Name="id_Empresa" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Tabla_PedidoEjercicioVideo" Member="Tabla_PedidoEjercicioVideo">
+    <Type Name="Tabla_PedidoEjercicioVideo">
+      <Column Name="id_PedidoEjercicioVideo" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="id_Usuario" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="id_Administrador" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="fechaPedidoEjercicioVideo" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="fichaEjercicioVideo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="enunciadoEjercicioVideoMATH" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="adjuntoEjercicioVideo" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="realizadoOKPedidoEjercicioVideo" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="pedidoExplicacion" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Association Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo" Member="Tabla_Usuario" ThisKey="id_Usuario" OtherKey="id_Usuario" Type="Tabla_Usuario" IsForeignKey="true" DeleteRule="CASCADE" DeleteOnNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.usuarioExiste" Method="usuarioExiste">
@@ -936,7 +937,31 @@
     <Parameter Name="numeroPedido" Type="System.Int32" DbType="Int" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.resultadoDataListFichaPaginado" Method="resultadoDataListFichaPaginado">
+    <Parameter Name="profesor" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="ano" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="colegio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="materia" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="Tema" Parameter="tema" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="pagina" Type="System.Int32" DbType="Int" Direction="InOut" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.resultadoDataListFicha" Method="resultadoDataListFicha">
+    <Parameter Name="profesor" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="ano" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="colegio" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="materia" Type="System.String" DbType="NVarChar(150)" />
+    <Parameter Name="Tema" Parameter="tema" Type="System.String" DbType="NVarChar(150)" />
+    <ElementType IdRef="ID1" />
+  </Function>
   <Function Name="dbo.cargarPedidoEjercicioVideo" Method="cargarPedidoEjercicioVideo">
+    <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
+    <Parameter Name="fichaEjercicioVideo" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="enunciadoEjercicioVideoMath" Type="System.String" DbType="NVarChar(50)" />
+    <Parameter Name="adjuntoEjercicioVideo" Type="System.String" DbType="NVarChar(50)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.cargarPedidoEjercicioVideoEjercicio" Method="cargarPedidoEjercicioVideoEjercicio">
     <Parameter Name="id_Usuario" Type="System.Int32" DbType="Int" />
     <Parameter Name="fichaEjercicioVideo" Type="System.String" DbType="NVarChar(50)" />
     <Parameter Name="enunciadoEjercicioVideoMath" Type="System.String" DbType="NVarChar(50)" />

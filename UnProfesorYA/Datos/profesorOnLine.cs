@@ -18,6 +18,12 @@ namespace Datos
         
         }
 
+        public void cargarTablaEjercicioVideosPedidosEjercicios(int id_Usuario, string fichaEjercicioVideo, string enunciadoEjercicioVideoMath, string adjuntoEjercicioVideo)
+        {
+            db.cargarPedidoEjercicioVideoEjercicio(id_Usuario, fichaEjercicioVideo, enunciadoEjercicioVideoMath, adjuntoEjercicioVideo);
+
+        }
+
         public int? obtenerPosicionPedido()
         {
             db.obtenerPedidoEjericicoVideo(ref numeroPedido);

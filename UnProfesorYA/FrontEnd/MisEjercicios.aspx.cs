@@ -30,18 +30,6 @@ namespace FrontEnd
 
             }
 
-            //if (Request.Params["__EVENTARGUMENT"] == "metodo1")
-            //{
-            //    metodo1();
-            //}
-            //if (Request.Params["__EVENTARGUMENT"] == "metodo2")
-            //{
-            //    metodo2();
-            //}
-            //if (Request.Params["__EVENTARGUMENT"] == "")
-            //{
-            //    return;
-            //}
         }
 
 
@@ -321,7 +309,7 @@ namespace FrontEnd
 //                      return;
                     
 
-                        break;
+                        
             }
         }
         

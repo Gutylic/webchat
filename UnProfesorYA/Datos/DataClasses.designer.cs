@@ -78,12 +78,12 @@ namespace Datos
     partial void InsertTabla_Ejercicios(Tabla_Ejercicios instance);
     partial void UpdateTabla_Ejercicios(Tabla_Ejercicios instance);
     partial void DeleteTabla_Ejercicios(Tabla_Ejercicios instance);
-    partial void InsertTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
-    partial void UpdateTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
-    partial void DeleteTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
     partial void InsertTabla_PedidoExplicacion(Tabla_PedidoExplicacion instance);
     partial void UpdateTabla_PedidoExplicacion(Tabla_PedidoExplicacion instance);
     partial void DeleteTabla_PedidoExplicacion(Tabla_PedidoExplicacion instance);
+    partial void InsertTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
+    partial void UpdateTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
+    partial void DeleteTabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo instance);
     #endregion
 		
 		public DataClassesDataContext() : 
@@ -388,14 +388,6 @@ namespace Datos
 			}
 		}
 		
-		public System.Data.Linq.Table<Tabla_PedidoEjercicioVideo> Tabla_PedidoEjercicioVideo
-		{
-			get
-			{
-				return this.GetTable<Tabla_PedidoEjercicioVideo>();
-			}
-		}
-		
 		public System.Data.Linq.Table<Tabla_PedidoExplicacion> Tabla_PedidoExplicacion
 		{
 			get
@@ -409,6 +401,14 @@ namespace Datos
 			get
 			{
 				return this.GetTable<Vista_MostrarListadoMisExplicaciones>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Tabla_PedidoEjercicioVideo> Tabla_PedidoEjercicioVideo
+		{
+			get
+			{
+				return this.GetTable<Tabla_PedidoEjercicioVideo>();
 			}
 		}
 		
@@ -1028,8 +1028,30 @@ namespace Datos
 			return ((int)(result.ReturnValue));
 		}
 		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.resultadoDataListFichaPaginado")]
+		public int resultadoDataListFichaPaginado([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string profesor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string ano, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string colegio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string materia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tema", DbType="NVarChar(150)")] string tema, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] ref System.Nullable<int> pagina)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), profesor, ano, colegio, materia, tema, pagina);
+			pagina = ((System.Nullable<int>)(result.GetParameterValue(5)));
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.resultadoDataListFicha")]
+		public ISingleResult<Tabla_Ejercicios> resultadoDataListFicha([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string profesor, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string ano, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string colegio, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(150)")] string materia, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Tema", DbType="NVarChar(150)")] string tema)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), profesor, ano, colegio, materia, tema);
+			return ((ISingleResult<Tabla_Ejercicios>)(result.ReturnValue));
+		}
+		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cargarPedidoEjercicioVideo")]
 		public int cargarPedidoEjercicioVideo([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string fichaEjercicioVideo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string enunciadoEjercicioVideoMath, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string adjuntoEjercicioVideo)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, fichaEjercicioVideo, enunciadoEjercicioVideoMath, adjuntoEjercicioVideo);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.cargarPedidoEjercicioVideoEjercicio")]
+		public int cargarPedidoEjercicioVideoEjercicio([global::System.Data.Linq.Mapping.ParameterAttribute(DbType="Int")] System.Nullable<int> id_Usuario, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string fichaEjercicioVideo, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string enunciadoEjercicioVideoMath, [global::System.Data.Linq.Mapping.ParameterAttribute(DbType="NVarChar(50)")] string adjuntoEjercicioVideo)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), id_Usuario, fichaEjercicioVideo, enunciadoEjercicioVideoMath, adjuntoEjercicioVideo);
 			return ((int)(result.ReturnValue));
@@ -4760,9 +4782,9 @@ namespace Datos
 		
 		private EntitySet<Tabla_Movimientos> _Tabla_Movimientos;
 		
-		private EntitySet<Tabla_PedidoEjercicioVideo> _Tabla_PedidoEjercicioVideo;
-		
 		private EntitySet<Tabla_PedidoExplicacion> _Tabla_PedidoExplicacion;
+		
+		private EntitySet<Tabla_PedidoEjercicioVideo> _Tabla_PedidoEjercicioVideo;
 		
 		private EntityRef<Tabla_Empresa> _Tabla_Empresa;
 		
@@ -4788,8 +4810,8 @@ namespace Datos
 		{
 			this._Tabla_MisEjercicios = new EntitySet<Tabla_MisEjercicios>(new Action<Tabla_MisEjercicios>(this.attach_Tabla_MisEjercicios), new Action<Tabla_MisEjercicios>(this.detach_Tabla_MisEjercicios));
 			this._Tabla_Movimientos = new EntitySet<Tabla_Movimientos>(new Action<Tabla_Movimientos>(this.attach_Tabla_Movimientos), new Action<Tabla_Movimientos>(this.detach_Tabla_Movimientos));
-			this._Tabla_PedidoEjercicioVideo = new EntitySet<Tabla_PedidoEjercicioVideo>(new Action<Tabla_PedidoEjercicioVideo>(this.attach_Tabla_PedidoEjercicioVideo), new Action<Tabla_PedidoEjercicioVideo>(this.detach_Tabla_PedidoEjercicioVideo));
 			this._Tabla_PedidoExplicacion = new EntitySet<Tabla_PedidoExplicacion>(new Action<Tabla_PedidoExplicacion>(this.attach_Tabla_PedidoExplicacion), new Action<Tabla_PedidoExplicacion>(this.detach_Tabla_PedidoExplicacion));
+			this._Tabla_PedidoEjercicioVideo = new EntitySet<Tabla_PedidoEjercicioVideo>(new Action<Tabla_PedidoEjercicioVideo>(this.attach_Tabla_PedidoEjercicioVideo), new Action<Tabla_PedidoEjercicioVideo>(this.detach_Tabla_PedidoEjercicioVideo));
 			this._Tabla_Empresa = default(EntityRef<Tabla_Empresa>);
 			OnCreated();
 		}
@@ -4944,19 +4966,6 @@ namespace Datos
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo", Storage="_Tabla_PedidoEjercicioVideo", ThisKey="id_Usuario", OtherKey="id_Usuario")]
-		public EntitySet<Tabla_PedidoEjercicioVideo> Tabla_PedidoEjercicioVideo
-		{
-			get
-			{
-				return this._Tabla_PedidoEjercicioVideo;
-			}
-			set
-			{
-				this._Tabla_PedidoEjercicioVideo.Assign(value);
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tabla_Usuario_Tabla_PedidoExplicacion", Storage="_Tabla_PedidoExplicacion", ThisKey="id_Usuario", OtherKey="id_Usuario")]
 		public EntitySet<Tabla_PedidoExplicacion> Tabla_PedidoExplicacion
 		{
@@ -4967,6 +4976,19 @@ namespace Datos
 			set
 			{
 				this._Tabla_PedidoExplicacion.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo", Storage="_Tabla_PedidoEjercicioVideo", ThisKey="id_Usuario", OtherKey="id_Usuario")]
+		public EntitySet<Tabla_PedidoEjercicioVideo> Tabla_PedidoEjercicioVideo
+		{
+			get
+			{
+				return this._Tabla_PedidoEjercicioVideo;
+			}
+			set
+			{
+				this._Tabla_PedidoEjercicioVideo.Assign(value);
 			}
 		}
 		
@@ -5048,18 +5070,6 @@ namespace Datos
 			entity.Tabla_Usuario = null;
 		}
 		
-		private void attach_Tabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tabla_Usuario = this;
-		}
-		
-		private void detach_Tabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo entity)
-		{
-			this.SendPropertyChanging();
-			entity.Tabla_Usuario = null;
-		}
-		
 		private void attach_Tabla_PedidoExplicacion(Tabla_PedidoExplicacion entity)
 		{
 			this.SendPropertyChanging();
@@ -5067,6 +5077,18 @@ namespace Datos
 		}
 		
 		private void detach_Tabla_PedidoExplicacion(Tabla_PedidoExplicacion entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tabla_Usuario = null;
+		}
+		
+		private void attach_Tabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo entity)
+		{
+			this.SendPropertyChanging();
+			entity.Tabla_Usuario = this;
+		}
+		
+		private void detach_Tabla_PedidoEjercicioVideo(Tabla_PedidoEjercicioVideo entity)
 		{
 			this.SendPropertyChanging();
 			entity.Tabla_Usuario = null;
@@ -6586,277 +6608,6 @@ namespace Datos
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tabla_PedidoEjercicioVideo")]
-	public partial class Tabla_PedidoEjercicioVideo : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private int _id_PedidoEjercicioVideo;
-		
-		private int _id_Usuario;
-		
-		private System.Nullable<int> _id_Administrador;
-		
-		private System.Nullable<System.DateTime> _fechaPedidoEjercicioVideo;
-		
-		private string _fichaEjercicioVideo;
-		
-		private string _enunciadoEjercicioVideoMATH;
-		
-		private string _adjuntoEjercicioVideo;
-		
-		private System.Nullable<bool> _realizadoOKPedidoEjercicioVideo;
-		
-		private EntityRef<Tabla_Usuario> _Tabla_Usuario;
-		
-    #region Definiciones de métodos de extensibilidad
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void Onid_PedidoEjercicioVideoChanging(int value);
-    partial void Onid_PedidoEjercicioVideoChanged();
-    partial void Onid_UsuarioChanging(int value);
-    partial void Onid_UsuarioChanged();
-    partial void Onid_AdministradorChanging(System.Nullable<int> value);
-    partial void Onid_AdministradorChanged();
-    partial void OnfechaPedidoEjercicioVideoChanging(System.Nullable<System.DateTime> value);
-    partial void OnfechaPedidoEjercicioVideoChanged();
-    partial void OnfichaEjercicioVideoChanging(string value);
-    partial void OnfichaEjercicioVideoChanged();
-    partial void OnenunciadoEjercicioVideoMATHChanging(string value);
-    partial void OnenunciadoEjercicioVideoMATHChanged();
-    partial void OnadjuntoEjercicioVideoChanging(string value);
-    partial void OnadjuntoEjercicioVideoChanged();
-    partial void OnrealizadoOKPedidoEjercicioVideoChanging(System.Nullable<bool> value);
-    partial void OnrealizadoOKPedidoEjercicioVideoChanged();
-    #endregion
-		
-		public Tabla_PedidoEjercicioVideo()
-		{
-			this._Tabla_Usuario = default(EntityRef<Tabla_Usuario>);
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_PedidoEjercicioVideo", DbType="Int NOT NULL", IsPrimaryKey=true)]
-		public int id_PedidoEjercicioVideo
-		{
-			get
-			{
-				return this._id_PedidoEjercicioVideo;
-			}
-			set
-			{
-				if ((this._id_PedidoEjercicioVideo != value))
-				{
-					this.Onid_PedidoEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._id_PedidoEjercicioVideo = value;
-					this.SendPropertyChanged("id_PedidoEjercicioVideo");
-					this.Onid_PedidoEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Usuario", DbType="Int NOT NULL")]
-		public int id_Usuario
-		{
-			get
-			{
-				return this._id_Usuario;
-			}
-			set
-			{
-				if ((this._id_Usuario != value))
-				{
-					if (this._Tabla_Usuario.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
-					this.Onid_UsuarioChanging(value);
-					this.SendPropertyChanging();
-					this._id_Usuario = value;
-					this.SendPropertyChanged("id_Usuario");
-					this.Onid_UsuarioChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Administrador", DbType="Int")]
-		public System.Nullable<int> id_Administrador
-		{
-			get
-			{
-				return this._id_Administrador;
-			}
-			set
-			{
-				if ((this._id_Administrador != value))
-				{
-					this.Onid_AdministradorChanging(value);
-					this.SendPropertyChanging();
-					this._id_Administrador = value;
-					this.SendPropertyChanged("id_Administrador");
-					this.Onid_AdministradorChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaPedidoEjercicioVideo", DbType="DateTime")]
-		public System.Nullable<System.DateTime> fechaPedidoEjercicioVideo
-		{
-			get
-			{
-				return this._fechaPedidoEjercicioVideo;
-			}
-			set
-			{
-				if ((this._fechaPedidoEjercicioVideo != value))
-				{
-					this.OnfechaPedidoEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._fechaPedidoEjercicioVideo = value;
-					this.SendPropertyChanged("fechaPedidoEjercicioVideo");
-					this.OnfechaPedidoEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fichaEjercicioVideo", DbType="NVarChar(50)")]
-		public string fichaEjercicioVideo
-		{
-			get
-			{
-				return this._fichaEjercicioVideo;
-			}
-			set
-			{
-				if ((this._fichaEjercicioVideo != value))
-				{
-					this.OnfichaEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._fichaEjercicioVideo = value;
-					this.SendPropertyChanged("fichaEjercicioVideo");
-					this.OnfichaEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_enunciadoEjercicioVideoMATH", DbType="NVarChar(50)")]
-		public string enunciadoEjercicioVideoMATH
-		{
-			get
-			{
-				return this._enunciadoEjercicioVideoMATH;
-			}
-			set
-			{
-				if ((this._enunciadoEjercicioVideoMATH != value))
-				{
-					this.OnenunciadoEjercicioVideoMATHChanging(value);
-					this.SendPropertyChanging();
-					this._enunciadoEjercicioVideoMATH = value;
-					this.SendPropertyChanged("enunciadoEjercicioVideoMATH");
-					this.OnenunciadoEjercicioVideoMATHChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_adjuntoEjercicioVideo", DbType="NVarChar(50)")]
-		public string adjuntoEjercicioVideo
-		{
-			get
-			{
-				return this._adjuntoEjercicioVideo;
-			}
-			set
-			{
-				if ((this._adjuntoEjercicioVideo != value))
-				{
-					this.OnadjuntoEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._adjuntoEjercicioVideo = value;
-					this.SendPropertyChanged("adjuntoEjercicioVideo");
-					this.OnadjuntoEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_realizadoOKPedidoEjercicioVideo", DbType="Bit")]
-		public System.Nullable<bool> realizadoOKPedidoEjercicioVideo
-		{
-			get
-			{
-				return this._realizadoOKPedidoEjercicioVideo;
-			}
-			set
-			{
-				if ((this._realizadoOKPedidoEjercicioVideo != value))
-				{
-					this.OnrealizadoOKPedidoEjercicioVideoChanging(value);
-					this.SendPropertyChanging();
-					this._realizadoOKPedidoEjercicioVideo = value;
-					this.SendPropertyChanged("realizadoOKPedidoEjercicioVideo");
-					this.OnrealizadoOKPedidoEjercicioVideoChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo", Storage="_Tabla_Usuario", ThisKey="id_Usuario", OtherKey="id_Usuario", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
-		public Tabla_Usuario Tabla_Usuario
-		{
-			get
-			{
-				return this._Tabla_Usuario.Entity;
-			}
-			set
-			{
-				Tabla_Usuario previousValue = this._Tabla_Usuario.Entity;
-				if (((previousValue != value) 
-							|| (this._Tabla_Usuario.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._Tabla_Usuario.Entity = null;
-						previousValue.Tabla_PedidoEjercicioVideo.Remove(this);
-					}
-					this._Tabla_Usuario.Entity = value;
-					if ((value != null))
-					{
-						value.Tabla_PedidoEjercicioVideo.Add(this);
-						this._id_Usuario = value.id_Usuario;
-					}
-					else
-					{
-						this._id_Usuario = default(int);
-					}
-					this.SendPropertyChanged("Tabla_Usuario");
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tabla_PedidoExplicacion")]
 	public partial class Tabla_PedidoExplicacion : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -7253,6 +7004,301 @@ namespace Datos
 				{
 					this._id_Empresa = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tabla_PedidoEjercicioVideo")]
+	public partial class Tabla_PedidoEjercicioVideo : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _id_PedidoEjercicioVideo;
+		
+		private int _id_Usuario;
+		
+		private System.Nullable<int> _id_Administrador;
+		
+		private System.Nullable<System.DateTime> _fechaPedidoEjercicioVideo;
+		
+		private string _fichaEjercicioVideo;
+		
+		private string _enunciadoEjercicioVideoMATH;
+		
+		private string _adjuntoEjercicioVideo;
+		
+		private System.Nullable<bool> _realizadoOKPedidoEjercicioVideo;
+		
+		private System.Nullable<bool> _pedidoExplicacion;
+		
+		private EntityRef<Tabla_Usuario> _Tabla_Usuario;
+		
+    #region Definiciones de métodos de extensibilidad
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void Onid_PedidoEjercicioVideoChanging(int value);
+    partial void Onid_PedidoEjercicioVideoChanged();
+    partial void Onid_UsuarioChanging(int value);
+    partial void Onid_UsuarioChanged();
+    partial void Onid_AdministradorChanging(System.Nullable<int> value);
+    partial void Onid_AdministradorChanged();
+    partial void OnfechaPedidoEjercicioVideoChanging(System.Nullable<System.DateTime> value);
+    partial void OnfechaPedidoEjercicioVideoChanged();
+    partial void OnfichaEjercicioVideoChanging(string value);
+    partial void OnfichaEjercicioVideoChanged();
+    partial void OnenunciadoEjercicioVideoMATHChanging(string value);
+    partial void OnenunciadoEjercicioVideoMATHChanged();
+    partial void OnadjuntoEjercicioVideoChanging(string value);
+    partial void OnadjuntoEjercicioVideoChanged();
+    partial void OnrealizadoOKPedidoEjercicioVideoChanging(System.Nullable<bool> value);
+    partial void OnrealizadoOKPedidoEjercicioVideoChanged();
+    partial void OnpedidoExplicacionChanging(System.Nullable<bool> value);
+    partial void OnpedidoExplicacionChanged();
+    #endregion
+		
+		public Tabla_PedidoEjercicioVideo()
+		{
+			this._Tabla_Usuario = default(EntityRef<Tabla_Usuario>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_PedidoEjercicioVideo", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int id_PedidoEjercicioVideo
+		{
+			get
+			{
+				return this._id_PedidoEjercicioVideo;
+			}
+			set
+			{
+				if ((this._id_PedidoEjercicioVideo != value))
+				{
+					this.Onid_PedidoEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._id_PedidoEjercicioVideo = value;
+					this.SendPropertyChanged("id_PedidoEjercicioVideo");
+					this.Onid_PedidoEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Usuario", DbType="Int NOT NULL")]
+		public int id_Usuario
+		{
+			get
+			{
+				return this._id_Usuario;
+			}
+			set
+			{
+				if ((this._id_Usuario != value))
+				{
+					if (this._Tabla_Usuario.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.Onid_UsuarioChanging(value);
+					this.SendPropertyChanging();
+					this._id_Usuario = value;
+					this.SendPropertyChanged("id_Usuario");
+					this.Onid_UsuarioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_id_Administrador", DbType="Int")]
+		public System.Nullable<int> id_Administrador
+		{
+			get
+			{
+				return this._id_Administrador;
+			}
+			set
+			{
+				if ((this._id_Administrador != value))
+				{
+					this.Onid_AdministradorChanging(value);
+					this.SendPropertyChanging();
+					this._id_Administrador = value;
+					this.SendPropertyChanged("id_Administrador");
+					this.Onid_AdministradorChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fechaPedidoEjercicioVideo", DbType="DateTime")]
+		public System.Nullable<System.DateTime> fechaPedidoEjercicioVideo
+		{
+			get
+			{
+				return this._fechaPedidoEjercicioVideo;
+			}
+			set
+			{
+				if ((this._fechaPedidoEjercicioVideo != value))
+				{
+					this.OnfechaPedidoEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._fechaPedidoEjercicioVideo = value;
+					this.SendPropertyChanged("fechaPedidoEjercicioVideo");
+					this.OnfechaPedidoEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_fichaEjercicioVideo", DbType="NVarChar(50)")]
+		public string fichaEjercicioVideo
+		{
+			get
+			{
+				return this._fichaEjercicioVideo;
+			}
+			set
+			{
+				if ((this._fichaEjercicioVideo != value))
+				{
+					this.OnfichaEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._fichaEjercicioVideo = value;
+					this.SendPropertyChanged("fichaEjercicioVideo");
+					this.OnfichaEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_enunciadoEjercicioVideoMATH", DbType="NVarChar(50)")]
+		public string enunciadoEjercicioVideoMATH
+		{
+			get
+			{
+				return this._enunciadoEjercicioVideoMATH;
+			}
+			set
+			{
+				if ((this._enunciadoEjercicioVideoMATH != value))
+				{
+					this.OnenunciadoEjercicioVideoMATHChanging(value);
+					this.SendPropertyChanging();
+					this._enunciadoEjercicioVideoMATH = value;
+					this.SendPropertyChanged("enunciadoEjercicioVideoMATH");
+					this.OnenunciadoEjercicioVideoMATHChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_adjuntoEjercicioVideo", DbType="NVarChar(50)")]
+		public string adjuntoEjercicioVideo
+		{
+			get
+			{
+				return this._adjuntoEjercicioVideo;
+			}
+			set
+			{
+				if ((this._adjuntoEjercicioVideo != value))
+				{
+					this.OnadjuntoEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._adjuntoEjercicioVideo = value;
+					this.SendPropertyChanged("adjuntoEjercicioVideo");
+					this.OnadjuntoEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_realizadoOKPedidoEjercicioVideo", DbType="Bit")]
+		public System.Nullable<bool> realizadoOKPedidoEjercicioVideo
+		{
+			get
+			{
+				return this._realizadoOKPedidoEjercicioVideo;
+			}
+			set
+			{
+				if ((this._realizadoOKPedidoEjercicioVideo != value))
+				{
+					this.OnrealizadoOKPedidoEjercicioVideoChanging(value);
+					this.SendPropertyChanging();
+					this._realizadoOKPedidoEjercicioVideo = value;
+					this.SendPropertyChanged("realizadoOKPedidoEjercicioVideo");
+					this.OnrealizadoOKPedidoEjercicioVideoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pedidoExplicacion", DbType="Bit")]
+		public System.Nullable<bool> pedidoExplicacion
+		{
+			get
+			{
+				return this._pedidoExplicacion;
+			}
+			set
+			{
+				if ((this._pedidoExplicacion != value))
+				{
+					this.OnpedidoExplicacionChanging(value);
+					this.SendPropertyChanging();
+					this._pedidoExplicacion = value;
+					this.SendPropertyChanged("pedidoExplicacion");
+					this.OnpedidoExplicacionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Tabla_Usuario_Tabla_PedidoEjercicioVideo", Storage="_Tabla_Usuario", ThisKey="id_Usuario", OtherKey="id_Usuario", IsForeignKey=true, DeleteOnNull=true, DeleteRule="CASCADE")]
+		public Tabla_Usuario Tabla_Usuario
+		{
+			get
+			{
+				return this._Tabla_Usuario.Entity;
+			}
+			set
+			{
+				Tabla_Usuario previousValue = this._Tabla_Usuario.Entity;
+				if (((previousValue != value) 
+							|| (this._Tabla_Usuario.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Tabla_Usuario.Entity = null;
+						previousValue.Tabla_PedidoEjercicioVideo.Remove(this);
+					}
+					this._Tabla_Usuario.Entity = value;
+					if ((value != null))
+					{
+						value.Tabla_PedidoEjercicioVideo.Add(this);
+						this._id_Usuario = value.id_Usuario;
+					}
+					else
+					{
+						this._id_Usuario = default(int);
+					}
+					this.SendPropertyChanged("Tabla_Usuario");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
