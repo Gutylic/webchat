@@ -60,6 +60,7 @@
     <Reference Include="System.EnterpriseServices" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="Aclaracion.txt" />
     <Content Include="ActivacionCelular.aspx" />
     <Content Include="ActivacionCorreo.aspx" />
     <Content Include="captcha\1.png" />

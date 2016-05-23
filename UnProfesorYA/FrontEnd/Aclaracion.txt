@@ -1,0 +1,4 @@
+﻿en el archivo basesweb esta la base de datos asociada
+la subi en back sucia por las dudas, esta tambien solo el script limpio
+otra cosa hacer el procedimiento descontar dias o algo similar no recuerdo el nombre
+auto ejecutable con un jobs
